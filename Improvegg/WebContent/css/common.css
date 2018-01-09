@@ -1,0 +1,53 @@
+@charset "ISO-8859-1";
+
+a,
+a:focus,
+a:hover {
+  	color: #fff;
+}
+
+
+.btn-primary,
+.btn-primary:focus {
+  	color: #eee;
+  	text-shadow: none;
+  	background-color: #bbb;
+}
+
+.btn-success,
+.btn-success:focus{
+	color: #eee;
+  	text-shadow: none;
+  	background-color: #bbb;
+}
+
+.navbar-dark{
+	background-color: #bbb;
+	color: #000;
+}
+
+nav{
+	background-color: #0cd;
+}
+
+body {
+  	color: #eee;
+  	text-align: center;
+  	font-family: "Rockwell", Times, serif;
+  	background-color: #bbb;
+}
+
+.row{
+	text-align: right;
+}
+
+.jumbotron{
+	text-align: left;
+	background-color: #0cd;
+}
+
+h1{
+	font-size: 50px;
+	color: #fff;
+  	text-shadow: 0 .05rem .1rem #aaa;
+}
