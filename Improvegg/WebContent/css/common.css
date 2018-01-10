@@ -32,17 +32,11 @@ nav{
 
 body {
   	color: #eee;
-  	text-align: center;
   	font-family: "Rockwell", Times, serif;
   	background-color: #bbb;
 }
 
-.row{
-	text-align: right;
-}
-
 .jumbotron{
-	text-align: left;
 	background-color: #0cd;
 }
 
