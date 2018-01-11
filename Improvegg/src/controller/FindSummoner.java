@@ -29,7 +29,7 @@ public class FindSummoner extends HttpServlet{
 		}
 		URL url = new URL("https://" + reg 
 				+ ".api.riotgames.com/lol/summoner/v3/summoners/by-name/" +
-				name + "?api_key=RGAPI-799f2900-0ce2-48fe-83e7-5531f919ac23");
+				name + "?RGAPI-593afd85-f45d-48b3-999c-f118f082d64a");
 		try {
 			InputStream is = url.openStream();
 		    is.close();

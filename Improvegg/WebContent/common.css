@@ -33,11 +33,29 @@ nav{
 body {
   	color: #eee;
   	font-family: "Rockwell", Times, serif;
+  	text-align: center;
   	background-color: #bbb;
+}
+
+.col-lg-4{
+	margin-top: 2rem;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.row {
+	text-align: center;
+	margin-right: -6rem;
+    margin-left: -6rem;
+}
+
+.rounded-circle{
+	margin-bottom: 2rem;
 }
 
 .jumbotron{
 	background-color: #0cd;
+	text-align: left;
 }
 
 h1{
