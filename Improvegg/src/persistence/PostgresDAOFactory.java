@@ -30,6 +30,11 @@ class PostgresDAOFactory extends DAOFactory {
 	}
 	
 	@Override
+	public ItemDao getItemDAO() {
+		return new ItemDaoJDBC(dataSource);
+	}
+	
+	@Override
 	public UtilDao getUtilDAO(){
 		return new UtilDao(dataSource);
 	}

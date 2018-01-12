@@ -18,7 +18,8 @@ public class UtilDao {
 		try {
 			String delete = "drop SEQUENCE if EXISTS sequenza_id;"
 					+ "drop table if exists account;"
-					+ "drop table if exists champion;";
+					+ "drop table if exists champion;"
+					+ "drop table if exists item";
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			System.out.println("Executed drop database");
@@ -39,7 +40,8 @@ public class UtilDao {
 		try {
 			String delete = "create SEQUENCE sequenza_id;"
 					+ "create table account (nome varchar(30) primary key, password varchar(30));"
-					+ "create table champion (\"id\" int primary key, nome varchar(30));";
+					+ "create table champion (\"id\" int primary key, nome varchar(30));"
+					+ "create table item (\"id\" int primary key, nome varchar(30));";
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			System.out.println("Executed create database");
@@ -64,6 +66,9 @@ public class UtilDao {
 				statement.executeUpdate();
 	
 				delete = "delete FROM champion";
+				statement = connection.prepareStatement(delete);
+				
+				delete = "delete FROM item";
 				statement = connection.prepareStatement(delete);
 				
 				statement.executeUpdate();

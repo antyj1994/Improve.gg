@@ -47,6 +47,8 @@ public abstract class DAOFactory {
 	public abstract AccountDao getAccountDAO();
 	
 	public abstract ChampionDao getChampionDAO();
+	
+	public abstract ItemDao getItemDAO();
 
 	public abstract persistence.UtilDao getUtilDAO();
 
