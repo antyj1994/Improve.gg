@@ -35,6 +35,21 @@ class PostgresDAOFactory extends DAOFactory {
 	}
 	
 	@Override
+	public RuneDao getRuneDAO() {
+		return new RuneDaoJDBC(dataSource);
+	}
+	
+	@Override
+	public SkillDao getSkillDAO() {
+		return new SkillDaoJDBC(dataSource);
+	}
+	
+	@Override
+	public SpellDao getSpellDAO() {
+		return new SpellDaoJDBC(dataSource);
+	}
+	
+	@Override
 	public UtilDao getUtilDAO(){
 		return new UtilDao(dataSource);
 	}

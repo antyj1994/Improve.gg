@@ -1,13 +1,13 @@
 package model;
 
-public class Item {
-	
+public class Rune {
+
 	private int id;
 	private String nome;
 	
-	public Item() {}
+	public Rune() {}
 	
-	public Item(int id, String nome) {
+	public Rune(int id, String nome) {
 		this.id = id;
 		this.nome = nome;
 	}
@@ -27,7 +27,7 @@ public class Item {
 	
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", nome=" + nome + "]";
+		return "Rune [id=" + id + ", nome=" + nome + "]";
 	}
-
+	
 }
