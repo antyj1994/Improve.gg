@@ -2,9 +2,6 @@ package controller;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.PrintWriter;
-import java.net.URL;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -56,6 +53,13 @@ public class FindSummoner extends HttpServlet{
 			}catch(RiotApiException e) {
 				req.setAttribute("trovato", false);
 				trovato = false;
+				String message = e.getMessage();
+				if (message.startsWith("404")) {
+					req.setAttribute("causa", "Summoner Not Found!");
+				}
+				else if (message.startsWith("40")) {
+					req.setAttribute("causa", "Sorry! We currently can't retrieve your data");
+				}
 			}
 			if (trovato) {
 				req.setAttribute("trovato", true);
@@ -66,16 +70,13 @@ public class FindSummoner extends HttpServlet{
 				List<Partita> partite = new LinkedList<>();
 				Partita partita = null;
 				int onlyLast = 0; //GETS ONLY THE LAST GAME
-				for(Iterator<MatchReference> it = l.iterator(); it.hasNext() && onlyLast < 2;){
+				for(Iterator<MatchReference> it = l.iterator(); it.hasNext() && onlyLast < 5;){
 					onlyLast++;
 					MatchReference m = it.next();
 					long gameId = m.getGameId();
 					Match match = api.getMatch(pl, gameId); //GET THE MATCH
 					Participant part = match.getParticipantByAccountId(id); //GET THE PLAYER
-					ParticipantStats ps = part.getStats(); // GET PLAYER STATS
-					String gameMode = match.getGameMode(); //GAME MODE "NORMAL" "RANKED"
-					System.out.println(" " + gameMode);
-					long gameDuration = match.getGameDuration(); //GAME DURATION SECONDS 
+					ParticipantStats ps = part.getStats();
 					String result = null;
 					List<TeamStats> lts = match.getTeams();
 					for (TeamStats ts : lts) {
@@ -83,18 +84,12 @@ public class FindSummoner extends HttpServlet{
 							result = ts.getWin();
 						}
 					}
-					int championId = part.getChampionId();
-					int item0 = ps.getItem0();
-					int kills = ps.getKills(); //KILLS
-					int deaths = ps.getDeaths(); //DEATHS
-					int assists = ps.getAssists(); //ASSISTS
-					System.out.println(kills+"/"+deaths+"/"+assists);
-					partita = new Partita(gameMode, Integer.toString(championId), kills+"/"+deaths+"/"+assists);
+					partita = new Partita(match.getGameMode(), result, match.getGameDuration(), Integer.toString(part.getChampionId()), ps.getKills()+"/"+ps.getDeaths()+"/"+ps.getAssists(),
+										  ps.getItem0(), ps.getItem1(), ps.getItem2(), ps.getItem3(), ps.getItem4(), ps.getItem5());
 					partite.add(partita);
 				}
 				req.setAttribute("sumName", summoner.getName());
 				req.setAttribute("partita", partite);
-				System.out.println("Ecco la prima partita mandata come attributo:" + ((List<Partita>)req.getAttribute("partita")).get(0).toString());
 			}
 		}catch(Exception ex) {
 			ex.printStackTrace();

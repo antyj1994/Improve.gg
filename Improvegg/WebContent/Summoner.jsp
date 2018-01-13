@@ -47,6 +47,7 @@
 		
 		<c:if test="${trovato}">
 			<div class="contianer-fluid main-container">
+				<hr class="my-2">
 				<div class="header">
 					<h2><b>${sumName}</b></h2>
 					<p>Recent Matches</p>
@@ -66,10 +67,10 @@
 					 		</div>
 					 		<div class="container items col">
 						 		<div class="container items1">
-						 			item1 item2 item3	
+						 			${partita.item0} ${partita.item1} ${partita.item2}	
 						 		</div>
 						 		<div class="container items2">
-						 			item4 item5 item6
+						 			${partita.item3} ${partita.item4} ${partita.item5}
 						 		</div>
 						 	</div>
 					 		<div class="teams col">
@@ -90,15 +91,26 @@
 		</c:if>
 		<c:if test="${not trovato}">
 			<div class="contianer-fluid main-container">
+				<hr class="my-2">
 				<div class="header">
 					<h2>
 						<b>
-							There is a problem retrieving your data
+							${causa}
 						</b>
 					</h2>
 				</div>
 			</div>
 		</c:if>
+		
+		<div class="container">
+			<hr class="my-4">
+		</div>
+		
+	  	<footer>
+      		<div>
+				<p>Page created by AntyJ</p>
+			</div>
+		</footer>
 		
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
