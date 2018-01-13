@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
 	<head>
@@ -13,12 +15,20 @@
 	<body>
 		
 		<nav class="navbar navbar-expand-lg justify-content-between">
- 			<a class="navbar-brand">
+ 			<a href="home" class="navbar-brand">
  				<h1>
  					<b>improve.gg</b>
  				</h1>
  			</a>
-  			<button class="btn btn-primary">Login</button>
+			<c:if test="${not loggato}">
+  				<a href="checkLogin" role="button" class="btn btn-primary" >Login</a>
+  			</c:if>
+  			<c:if test="${loggato}">
+  				<div>
+  					<p class="login-label"><b> ${messaggio} </b></p>
+  					<a href="checkLogout" class="btn btn-danger" role="button">Logout</a>
+  				</div>
+  			</c:if>
 		</nav>
 		
 		<nav class="navbar navbar-expand-lg navbar-dark">
@@ -29,13 +39,13 @@
   			<div class="collapse navbar-collapse" id="navbarSupportedContent">
     			<ul class="navbar-nav mr-auto">
       				<li class="nav-item">
-       					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+       					<a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
       				</li>
       				<li class="nav-item">
-        				<a class="nav-link" href="#">Champions</a>
+        				<a class="nav-link" href="#">Favourites</a>
       				</li>
       				<li class="nav-item">
-       					<a class="nav-link" href="Summoner.html">Pro Players</a>
+       					<a class="nav-link" href="#">Pro Players</a>
       				</li>
     			</ul>	
   			</div>

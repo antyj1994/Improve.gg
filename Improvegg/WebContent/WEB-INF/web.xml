@@ -22,5 +22,44 @@
 		<servlet-name>FindSummonerServlet</servlet-name>
 		<url-pattern>/findSummoner</url-pattern>
 	</servlet-mapping>
-
+	
+	<servlet>
+    	<servlet-name>CheckLogin</servlet-name>
+    	<servlet-class>controller.CheckLogin</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>CheckLogin</servlet-name>
+    	<url-pattern>/checkLogin</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>CheckLogout</servlet-name>
+    	<servlet-class>controller.CheckLogout</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>CheckLogout</servlet-name>
+    	<url-pattern>/checkLogout</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>Register</servlet-name>
+    	<servlet-class>controller.Register</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>Register</servlet-name>
+    	<url-pattern>/register</url-pattern>
+  	</servlet-mapping>
+  	
+  	<servlet>
+    	<servlet-name>HomeServlet</servlet-name>
+    	<servlet-class>controller.Home</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>HomeServlet</servlet-name>
+    	<url-pattern></url-pattern>
+    	<url-pattern>/home</url-pattern>
+	</servlet-mapping>
+	
+	
+	
 </web-app>

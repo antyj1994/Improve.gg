@@ -17,12 +17,20 @@
 	<body>
 	
 		<nav class="navbar navbar-expand-lg justify-content-between">
-	 		<a class="navbar-brand">
+	 		<a href="home" class="navbar-brand">
 	 			<h1>
 	 				<b>improve.gg</b>
 	 			</h1>
 	 		</a>
-	  		<button class="btn btn-primary">Login</button>
+	  		<c:if test="${not loggato}">
+	  			<a href="checkLogin" role="button" class="btn btn-primary" >Login</a>
+  			</c:if>
+  			<c:if test="${loggato}">
+  				<div>
+  					<p class="login-label"><b> ${messaggio} </b></p>
+  					<a href="checkLogout" class="btn btn-danger" role="button">Logout</a>
+  				</div>
+  			</c:if>
 		</nav>
 			
 		<nav class="navbar navbar-expand-lg navbar-dark">
@@ -33,10 +41,10 @@
   			<div class="collapse navbar-collapse" id="navbarSupportedContent">
     			<ul class="navbar-nav mr-auto">
       				<li class="nav-item">
-       					<a class="nav-link" href="Index.html">Home <span class="sr-only">(current)</span></a>
+       					<a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
       				</li>
       				<li class="nav-item">
-        				<a class="nav-link" href="#">Champions</a>
+        				<a class="nav-link" href="#">Favourites</a>
       				</li>
       				<li class="nav-item">
        					<a class="nav-link" href="#">Pro Players</a>
@@ -53,38 +61,48 @@
 					<p>Recent Matches</p>
 				</div>
 				<div class="container-fluid matches-container">
-					<c:forEach var="partita" items="${partita}">
-						<hr class="my-2">
-					 	<div class="container row match-container justify-content-between">
-					 		<div class="game-stats col">
-					 			${partita.gameMode}
-					 		</div>
-					 		<div class="summ-stats col">
-					 			${partita.champName}
-					 		</div>
-					 		<div class="kda col">
-					 			${partita.kda}
-					 		</div>
-					 		<div class="container items col">
-						 		<div class="container items1">
-						 			${partita.item0} ${partita.item1} ${partita.item2}	
+					<c:if test="${not emptyMatches}">
+						<c:forEach var="partita" items="${partita}">
+							<hr class="my-2">
+						 	<div class="container row match-container justify-content-between">
+						 		<div class="game-stats col">
+						 			${partita.gameMode}
 						 		</div>
-						 		<div class="container items2">
-						 			${partita.item3} ${partita.item4} ${partita.item5}
+						 		<div class="summ-stats col">
+						 			${partita.champName}
 						 		</div>
-						 	</div>
-					 		<div class="teams col">
-					 			<div class="team-row row">
-						 			<div class="container team1">
-							 			sum1 sum2 sum3 sum4 sum5
+						 		<div class="kda col">
+						 			${partita.kda}
+						 		</div>
+						 		<div class="container items col">
+							 		<div class="container items1">
+							 			${partita.item0} ${partita.item1} ${partita.item2}	
 							 		</div>
-							 		<div class="container team2">
-							 			sum6 sum7 sum8 sum9 sum0
+							 		<div class="container items2">
+							 			${partita.item3} ${partita.item4} ${partita.item5}
 							 		</div>
 							 	</div>
-					 		</div>
-					 	</div>
-					</c:forEach>
+						 		<div class="teams col">
+						 			<div class="team-row row">
+							 			<div class="container team1">
+								 			sum1 sum2 sum3 sum4 sum5
+								 		</div>
+								 		<div class="container team2">
+								 			sum6 sum7 sum8 sum9 sum0
+								 		</div>
+								 	</div>
+						 		</div>
+						 	</div>
+						</c:forEach>
+					</c:if>
+					<c:if test="${emptyMatches}">
+						<hr class="my-2">
+					 	<h2>
+							<b>
+								${causa}
+							</b>
+						</h2>
+					</c:if>
 					<hr class="my-2">
 				</div>
 			</div>

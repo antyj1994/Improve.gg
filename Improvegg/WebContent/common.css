@@ -6,17 +6,17 @@ a:hover {
   	color: #fff;
 }
 
-
+.btn,
+.btn:focus,
 .btn-primary,
-.btn-primary:focus {
-  	color: #eee;
-  	text-shadow: none;
-  	background-color: #bbb;
-}
-
+.btn-primary:focus,
 .btn-success,
-.btn-success:focus{
-	color: #eee;
+.btn-success:focus,
+.btn-warning,
+.btn-warning:focus,
+.btn-danger,
+.btn-danger:focus {
+  	color: #eee;
   	text-shadow: none;
   	background-color: #bbb;
 }

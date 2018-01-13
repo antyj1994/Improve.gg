@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -32,10 +31,23 @@ public class FindSummoner extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+			
+		HttpSession session = req.getSession();
+		String username = (String) session.getAttribute("username");
+		boolean isLogged = false;
+		if (session.getAttribute("logged") != null) {
+			isLogged = (boolean) session.getAttribute("logged");
+		}
+		if (username != null && isLogged){
+			req.setAttribute("loggato", true);
+		}else {
+			req.setAttribute("loggato", false);
+		}
+		req.setAttribute("messaggio", username);
+			
 		try {
 			
-			ApiConfig config = new ApiConfig().setKey("RGAPI-1168736a-0126-4e0d-86ed-576e846d12cc");
+			ApiConfig config = new ApiConfig().setKey("RGAPI-29bc84d8-888f-44d9-b72b-888620d87e1f");
 			RiotApi api = new RiotApi(config);
 			String name = req.getParameter("summonerName");
 			String region = req.getParameter("region");
@@ -64,32 +76,42 @@ public class FindSummoner extends HttpServlet{
 			if (trovato) {
 				req.setAttribute("trovato", true);
 				long id = summoner.getAccountId();
-				int level = summoner.getSummonerLevel();
-				MatchList ml = api.getRecentMatchListByAccountId(pl, id); //GETS THE RECENT MATCHLIST
-				List<MatchReference> l = ml.getMatches();
-				List<Partita> partite = new LinkedList<>();
-				Partita partita = null;
-				int onlyLast = 0; //GETS ONLY THE LAST GAME
-				for(Iterator<MatchReference> it = l.iterator(); it.hasNext() && onlyLast < 5;){
-					onlyLast++;
-					MatchReference m = it.next();
-					long gameId = m.getGameId();
-					Match match = api.getMatch(pl, gameId); //GET THE MATCH
-					Participant part = match.getParticipantByAccountId(id); //GET THE PLAYER
-					ParticipantStats ps = part.getStats();
-					String result = null;
-					List<TeamStats> lts = match.getTeams();
-					for (TeamStats ts : lts) {
-						if (ts.getTeamId() == part.getTeamId()) {
-							result = ts.getWin();
+				MatchList ml = null;
+				boolean matchTrovati = true;
+				try {
+					ml = api.getRecentMatchListByAccountId(pl, id); //GETS THE RECENT MATCHLIST  BUG #1
+				} catch (RiotApiException e) {
+					req.setAttribute("emptyMatches", true);
+					req.setAttribute("causa", "Sorry! We currently can't retrieve your matches");
+					matchTrovati = false;
+				}
+				if (matchTrovati) {
+					List<MatchReference> l = ml.getMatches();
+					List<Partita> partite = new LinkedList<>();
+					Partita partita = null;
+					int onlyLast = 0; //GETS ONLY THE LAST GAME
+					for(Iterator<MatchReference> it = l.iterator(); it.hasNext() && onlyLast < 5;){
+						onlyLast++;
+						MatchReference m = it.next();
+						long gameId = m.getGameId();
+						Match match = api.getMatch(pl, gameId); //GET THE MATCH
+						Participant part = match.getParticipantByAccountId(id); //GET THE PLAYER
+						ParticipantStats ps = part.getStats();
+						String result = null;
+						List<TeamStats> lts = match.getTeams();
+						for (TeamStats ts : lts) {
+							if (ts.getTeamId() == part.getTeamId()) {
+								result = ts.getWin();
+							}
 						}
+						partita = new Partita(match.getGameMode(), result, match.getGameDuration(), Integer.toString(part.getChampionId()), ps.getKills()+"/"+ps.getDeaths()+"/"+ps.getAssists(),
+											ps.getItem0(), ps.getItem1(), ps.getItem2(), ps.getItem3(), ps.getItem4(), ps.getItem5());
+						partite.add(partita);
 					}
-					partita = new Partita(match.getGameMode(), result, match.getGameDuration(), Integer.toString(part.getChampionId()), ps.getKills()+"/"+ps.getDeaths()+"/"+ps.getAssists(),
-										  ps.getItem0(), ps.getItem1(), ps.getItem2(), ps.getItem3(), ps.getItem4(), ps.getItem5());
-					partite.add(partita);
+					req.setAttribute("partita", partite);
 				}
 				req.setAttribute("sumName", summoner.getName());
-				req.setAttribute("partita", partite);
+				req.setAttribute("sumLevel", summoner.getSummonerLevel());
 			}
 		}catch(Exception ex) {
 			ex.printStackTrace();
