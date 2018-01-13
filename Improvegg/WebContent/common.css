@@ -43,7 +43,7 @@ body {
 	padding-left: 0px;
 }
 
-.row {
+.first-time-user-row {
 	text-align: center;
 	margin-right: -6rem;
     margin-left: -6rem;
@@ -56,6 +56,12 @@ body {
 .jumbotron{
 	background-color: #0cd;
 	text-align: left;
+}
+
+.row {
+    text-align: center;
+    margin-right: 0rem;
+    margin-left: 0rem;
 }
 
 h1{
