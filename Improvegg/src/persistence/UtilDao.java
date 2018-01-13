@@ -46,7 +46,7 @@ public class UtilDao {
 			String delete = "create SEQUENCE sequenza_id;"
 					+ "create table account (nome varchar(30) primary key, password varchar(30));"
 					+ "create table champion (\"id\" int primary key, nome varchar(30));"
-					+ "create table item (\"id\" int primary key, nome varchar(30));"
+					+ "create table item (\"id\" int primary key, nome varchar(300));"
 					+ "create table rune (\"id\" int primary key, nome varchar(30));"
 					+ "create table skill (\"id\" int primary key, nome varchar(30));"
 					+ "create table spell (\"id\" int primary key, nome varchar(30));"
