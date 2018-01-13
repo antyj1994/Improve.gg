@@ -50,6 +50,12 @@ class PostgresDAOFactory extends DAOFactory {
 	}
 	
 	@Override
+	public MiscDao getMiscDAO() {
+		return new MiscDaoJDBC(dataSource);
+		
+	}
+	
+	@Override
 	public UtilDao getUtilDAO(){
 		return new UtilDao(dataSource);
 	}

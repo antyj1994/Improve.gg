@@ -22,7 +22,8 @@ public class UtilDao {
 					+ "drop table if exists item;"
 					+ "drop table if exists rune;"
 					+ "drop table if exists skill;"
-					+ "drop table if exists spell;";
+					+ "drop table if exists spell;"
+					+ "drop table if exists misc;";
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			System.out.println("Executed drop database");
@@ -47,7 +48,8 @@ public class UtilDao {
 					+ "create table item (\"id\" int primary key, nome varchar(30));"
 					+ "create table rune (\"id\" int primary key, nome varchar(30));"
 					+ "create table skill (\"id\" int primary key, nome varchar(30));"
-					+ "create table spell (\"id\" int primary key, nome varchar(30));";
+					+ "create table spell (\"id\" int primary key, nome varchar(30));"
+					+ "create table misc (\"id\" int primary key, nome varchar(30));";
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			System.out.println("Executed create database");
@@ -93,6 +95,11 @@ public class UtilDao {
 				
 
 				delete = "delete FROM spell";
+				statement = connection.prepareStatement(delete);
+				
+				statement.executeUpdate();
+				
+				delete = "delete FROM misc";
 				statement = connection.prepareStatement(delete);
 				
 				statement.executeUpdate();
