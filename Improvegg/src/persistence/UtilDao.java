@@ -23,7 +23,8 @@ public class UtilDao {
 					+ "drop table if exists rune;"
 					+ "drop table if exists skill;"
 					+ "drop table if exists spell;"
-					+ "drop table if exists misc;";
+					+ "drop table if exists misc;"
+					+ "drop table if exists favourite;";
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			System.out.println("Executed drop database");
@@ -49,7 +50,8 @@ public class UtilDao {
 					+ "create table rune (\"id\" int primary key, nome varchar(30));"
 					+ "create table skill (\"id\" int primary key, nome varchar(30));"
 					+ "create table spell (\"id\" int primary key, nome varchar(30));"
-					+ "create table misc (\"id\" int primary key, nome varchar(30));";
+					+ "create table misc (\"id\" int primary key, nome varchar(30));"
+					+ "create table favourite (nome varchar(30) primary key, account varchar(30));";
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.executeUpdate();
 			System.out.println("Executed create database");
@@ -68,42 +70,26 @@ public class UtilDao {
 			
 			Connection connection = dataSource.getConnection();
 			try {
+				
 				String delete = "delete FROM account";
 				PreparedStatement statement = connection.prepareStatement(delete);
-				statement.executeUpdate();
-	
+				
 				delete = "delete FROM champion";
 				statement = connection.prepareStatement(delete);
-				
-				statement.executeUpdate();
-				
 				delete = "delete FROM item";
 				statement = connection.prepareStatement(delete);
-				
-				statement.executeUpdate();
-				
 				delete = "delete FROM rune";
 				statement = connection.prepareStatement(delete);
-				
-				statement.executeUpdate();
-				
-
 				delete = "delete FROM skill";
-				statement = connection.prepareStatement(delete);
-				
-				statement.executeUpdate();
-				
-
+				statement = connection.prepareStatement(delete);			
 				delete = "delete FROM spell";
-				statement = connection.prepareStatement(delete);
-				
-				statement.executeUpdate();
-				
+				statement = connection.prepareStatement(delete);		
 				delete = "delete FROM misc";
-				statement = connection.prepareStatement(delete);
+				statement = connection.prepareStatement(delete);			
+				delete = "delete FROM favourite";
+				statement = connection.prepareStatement(delete);	
 				
 				statement.executeUpdate();
-				
 				
 			} catch (SQLException e) {
 				throw new PersistenceException(e.getMessage());
