@@ -33,7 +33,7 @@ public class FindFavourites extends HttpServlet{
 			req.setAttribute("loggato", false);
 		}
 		req.setAttribute("messaggio", username);
-		RequestDispatcher dispacher = req.getRequestDispatcher("Login.jsp");
+		RequestDispatcher dispacher = req.getRequestDispatcher("Favourite.jsp");
 		dispacher.forward(req, resp);
 	}
 	

@@ -62,11 +62,11 @@
 	</servlet-mapping>
 	
 	<servlet>
-    	<servlet-name>FavouriteServlet</servlet-name>
+    	<servlet-name>Favourite</servlet-name>
     	<servlet-class>controller.FindFavourites</servlet-class>
   	</servlet>
   	<servlet-mapping>
-    	<servlet-name>FavouriteServlet</servlet-name>
+    	<servlet-name>Favourite</servlet-name>
     	<url-pattern>/findFavourites</url-pattern>
 	</servlet-mapping>
 	
