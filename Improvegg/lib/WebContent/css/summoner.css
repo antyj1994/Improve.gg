@@ -1,0 +1,26 @@
+@charset "ISO-8859-1";
+
+.body{
+	background-color: #bbb;
+}
+
+.matches-container{
+	background-color: #0cd;
+}
+
+.main-container{
+	background-color: #0cd;
+	margin-left: 50px;
+	margin-right: 50px;
+	border-left:2rem;
+}
+
+.row {
+    text-align: center;
+    margin-right: 0rem;
+    margin-left: 0rem;
+}
+
+.header{
+	text-align: center;
+}
