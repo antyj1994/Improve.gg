@@ -90,7 +90,7 @@
 		
 	  	<footer>
       		<div>
-				<p>Page created by AntyJ</p>
+				<p>Page created by Limited Budget</p>
 			</div>
 		</footer>
 		
