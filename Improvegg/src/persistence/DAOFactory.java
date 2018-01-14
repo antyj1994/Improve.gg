@@ -57,6 +57,8 @@ public abstract class DAOFactory {
 	public abstract SpellDao getSpellDAO();
 	
 	public abstract MiscDao getMiscDAO();
+	
+	public abstract FavouriteDao getFavouriteDAO();
 
 	public abstract persistence.UtilDao getUtilDAO();
 

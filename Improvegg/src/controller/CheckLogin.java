@@ -25,10 +25,10 @@ public class CheckLogin extends HttpServlet{
 		if (session.getAttribute("logged") != null) {
 			isLogged = (boolean) session.getAttribute("logged");
 		}
-		if (username != null){
-			req.setAttribute("loggato", false);
-		}else if(isLogged){
+		if (username != null && isLogged){
 			req.setAttribute("loggato", true);
+		}else {
+			req.setAttribute("loggato", false);
 		}
 		req.setAttribute("messaggio", username);
 		RequestDispatcher dispacher = req.getRequestDispatcher("Login.jsp");
@@ -42,7 +42,11 @@ public class CheckLogin extends HttpServlet{
 		String password = (String) req.getParameter("password");
 		AccountDao dao = DatabaseManager.getInstance().getDaoFactory().getAccountDAO();
 		Account account = dao.findByPrimaryKey(username);
-		if ((boolean)session.getAttribute("logged") == false) {
+		boolean isLogged = false;
+		try {
+			isLogged = (boolean)session.getAttribute("logged");
+		} catch (NullPointerException e) {}
+		if (!isLogged) {
 			req.setAttribute("giaLoggato", false);
 			if (account != null){
 				if (password.equals(account.getPassword())){

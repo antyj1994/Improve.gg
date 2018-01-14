@@ -58,8 +58,16 @@
     	<servlet-name>HomeServlet</servlet-name>
     	<url-pattern></url-pattern>
     	<url-pattern>/home</url-pattern>
+    	<url-pattern>/index</url-pattern>
 	</servlet-mapping>
 	
-	
+	<servlet>
+    	<servlet-name>FavouriteServlet</servlet-name>
+    	<servlet-class>controller.FindFavourites</servlet-class>
+  	</servlet>
+  	<servlet-mapping>
+    	<servlet-name>FavouriteServlet</servlet-name>
+    	<url-pattern>/findFavourites</url-pattern>
+	</servlet-mapping>
 	
 </web-app>

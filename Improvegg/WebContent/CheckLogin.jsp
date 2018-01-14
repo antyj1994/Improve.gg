@@ -43,7 +43,7 @@
        					<a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
       				</li>
       				<li class="nav-item">
-        				<a class="nav-link" href="#">Favourites</a>
+        				<a class="nav-link" href="findFavourites">Favourites</a>
       				</li>
       				<li class="nav-item">
        					<a class="nav-link" href="#">Pro Players</a>

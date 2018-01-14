@@ -56,6 +56,12 @@ class PostgresDAOFactory extends DAOFactory {
 	}
 	
 	@Override
+	public FavouriteDao getFavouriteDAO() {
+		return new FavouriteDaoJDBC(dataSource);
+		
+	}
+	
+	@Override
 	public UtilDao getUtilDAO(){
 		return new UtilDao(dataSource);
 	}
