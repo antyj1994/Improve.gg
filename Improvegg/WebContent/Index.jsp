@@ -14,11 +14,10 @@
 	
 	<body>
 		
+		<div class="container-fluid body-container">
 		<nav class="navbar navbar-expand-lg justify-content-between">
  			<a href="home" class="navbar-brand">
- 				<h1>
- 					<b>improve.gg</b>
- 				</h1>
+ 				<img class="logo" src="images//im-prove.png" height="80" width="180">
  			</a>
 			<c:if test="${not loggato}">
   				<a href="checkLogin" role="button" class="btn btn-primary" >Login</a>
@@ -108,6 +107,7 @@
 				<p>Page created by Limited Budget</p>
 			</div>
 		</footer>
+		</div>
 		
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>

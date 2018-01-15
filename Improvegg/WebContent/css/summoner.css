@@ -1,18 +1,20 @@
 @charset "ISO-8859-1";
 
 .body{
-	background-color: #bbb;
+	background-color: #2bd;
 }
 
 .matches-container{
-	background-color: #0cd;
+	background-color: #2bd;
+	padding-left: 0px;
+	padding-right: 0px;
 }
 
 .main-container{
-	background-color: #0cd;
+	background-color: #25f;
 	margin-left: 50px;
 	margin-right: 50px;
-	border-left:2rem;
+	border-left: 2rem;
 }
 
 .row {

@@ -14,12 +14,11 @@
 	</head>
 	
 	<body>
-	
+		
+		<div class="container-fluid body-container">
 		<nav class="navbar navbar-expand-lg justify-content-between">
 	 		<a href="home" class="navbar-brand">
-	 			<h1>
-	 				<b>improve.gg</b>
-	 			</h1>
+	 			<img class="logo" src="images//im-prove.png" height="80" width="180">
 	 		</a>
  			<c:if test="${not loggato}">
   				<a href="checkLogin" role="button" class="btn btn-primary" >Login</a>
@@ -85,7 +84,7 @@
 				<p>Page created by Limited Budget</p>
 			</div>
 		</footer>
-		
+		</div>
 	</body>
 	
 </html>
