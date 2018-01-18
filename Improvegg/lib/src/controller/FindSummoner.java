@@ -104,8 +104,20 @@ public class FindSummoner extends HttpServlet{
 								result = ts.getWin();
 							}
 						}
-						partita = new Partita(match.getGameMode(), result, match.getGameDuration(), Integer.toString(part.getChampionId()), ps.getKills()+"/"+ps.getDeaths()+"/"+ps.getAssists(),
-											ps.getItem0(), ps.getItem1(), ps.getItem2(), ps.getItem3(), ps.getItem4(), ps.getItem5());
+						partita = new Partita();
+						partita.setChampLevel(ps.getChampLevel());
+						partita.setChampName(Integer.toString(part.getChampionId()));
+						partita.setCs(ps.getTotalMinionsKilled());
+						partita.setGameDuration(match.getGameDuration());
+						partita.setGameMode(match.getGameMode());
+						partita.setGolds(ps.getGoldEarned());
+						partita.setItem0(ps.getItem0());
+						partita.setItem1(ps.getItem1());
+						partita.setItem2(ps.getItem2());
+						partita.setItem3(ps.getItem3());
+						partita.setItem4(ps.getItem4());
+						partita.setItem5(ps.getItem5());
+						
 						partite.add(partita);
 					}
 					req.setAttribute("partita", partite);

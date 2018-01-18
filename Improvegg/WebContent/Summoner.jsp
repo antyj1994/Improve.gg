@@ -120,6 +120,8 @@
 						 					${partita.kda}
 						 					<hr class="my-1">
 						 					<img src="images//200.png" class="rounded champion-image" width="25" height="25">
+						 					<hr class="my-1">
+						 					$partita.
 						 				</div>
 						 			</div>
 						 		</div>
