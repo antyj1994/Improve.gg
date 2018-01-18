@@ -4,12 +4,13 @@ public class Rune {
 
 	private int id;
 	private String nome;
-	
+	private String url;	
 	public Rune() {}
 	
-	public Rune(int id, String nome) {
+	public Rune(int id, String nome, String url) {
 		this.id = id;
 		this.nome = nome;
+		this.url = url;
 	}
 	
 	public int getId() {
@@ -25,9 +26,19 @@ public class Rune {
 		this.nome = nome;
 	}
 	
+	public String getUrl() {
+		
+		return url;
+	}
+	
+	public void setUrl(String url) {
+		
+		this.url=url;
+	}
+	
 	@Override
 	public String toString() {
-		return "Rune [id=" + id + ", nome=" + nome + "]";
+		return "Rune [id=" + id + ", nome=" + nome + ", url="+ url + "]";
 	}
 	
 }

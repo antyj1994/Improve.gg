@@ -4,12 +4,14 @@ public class Spell {
 	
 	private int id;
 	private String nome;
+	private String url;
 	
 	public Spell() {}
 	
-	public Spell(int id, String nome) {
+	public Spell(int id, String nome, String url) {
 		this.id = id;
 		this.nome = nome;
+		this.url = url;
 	}
 	
 	public int getId() {
@@ -25,9 +27,19 @@ public class Spell {
 		this.nome = nome;
 	}
 	
+	public String getUrl() {
+		
+		return url;
+	}
+	
+	public void setUrl(String url) {
+		
+		this.url=url;
+	}
+	
 	@Override
 	public String toString() {
-		return "Spell [id=" + id + ", nome=" + nome + "]";
+		return "Spell [id=" + id + ", nome=" + nome + ", url="+ url + "]";
 	}
 
 }

@@ -22,10 +22,11 @@ public class ChampionDaoJDBC implements ChampionDao{
 	public void save(Champion champion) {
 		Connection connection = this.dataSource.getConnection();
 		try {		
-			String insert = "insert into champion(id, nome) values (?,?)";
+			String insert = "insert into champion(id, nome, url) values (?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setLong(1, champion.getId());
-			statement.setString(2, champion.getNome());			
+			statement.setString(2, champion.getNome());		
+			statement.setString(3, champion.getUrl() );
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			if (connection != null) {
@@ -59,6 +60,7 @@ public class ChampionDaoJDBC implements ChampionDao{
 				champion = new Champion();
 				champion.setId(result.getInt("id"));				
 				champion.setNome(result.getString("nome"));
+				champion.setUrl(result.getString("url"));
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -86,6 +88,7 @@ public class ChampionDaoJDBC implements ChampionDao{
 				champion = new Champion();
 				champion.setId(result.getInt("id"));				
 				champion.setNome(result.getString("nome"));
+				champion.setUrl(result.getString("url"));
 				champions.add(champion);
 			}
 		} catch (SQLException e) {
@@ -104,10 +107,11 @@ public class ChampionDaoJDBC implements ChampionDao{
 	public void update(Champion champion) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update champion SET id = ?, nome = ?";
+			String update = "update champion SET id = ?, nome = ?, url = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setInt(1, champion.getId());
 			statement.setString(2, champion.getNome());
+			statement.setString(3, champion.getUrl());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

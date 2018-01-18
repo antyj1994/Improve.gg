@@ -4,12 +4,16 @@ public class Item {
 	
 	private int id;
 	private String nome;
+	private String url;
+
 	
 	public Item() {}
 	
-	public Item(int id, String nome) {
+	public Item(int id, String nome, String url) {
 		this.id = id;
 		this.nome = nome;
+		this.url = url;
+
 	}
 	
 	public int getId() {
@@ -25,9 +29,20 @@ public class Item {
 		this.nome = nome;
 	}
 	
+	public String getUrl() {
+		
+		return url;
+	}
+	
+	public void setUrl(String url) {
+		
+		this.url=url;
+	}
+
+	
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", nome=" + nome + "]";
+		return "Item [id=" + id + ", nome=" + nome + ", url="+ url +"]";
 	}
 
 }

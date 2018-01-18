@@ -26,10 +26,11 @@ public class RuneDaoJDBC implements RuneDao {
 	public void save(Rune rune) {
 		Connection connection = this.dataSource.getConnection();
 		try {		
-			String insert = "insert into rune(id, nome) values (?,?)";
+			String insert = "insert into rune(id, nome, url) values (?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setLong(1, rune.getId());
-			statement.setString(2, rune.getNome());			
+			statement.setString(2, rune.getNome());	
+			statement.setString(3, rune.getUrl());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			if (connection != null) {
@@ -63,6 +64,7 @@ public class RuneDaoJDBC implements RuneDao {
 				rune = new Rune();
 				rune.setId(result.getInt("id"));				
 				rune.setNome(result.getString("nome"));
+				rune.setUrl(result.getString("url"));
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -91,6 +93,7 @@ public class RuneDaoJDBC implements RuneDao {
 				rune = new Rune();
 				rune.setId(result.getInt("id"));				
 				rune.setNome(result.getString("nome"));
+				rune.setUrl(result.getString("url"));
 				runes.add(rune);
 			}
 		} catch (SQLException e) {
@@ -109,10 +112,11 @@ public class RuneDaoJDBC implements RuneDao {
 	public void update(Rune rune) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update rune SET id = ?, nome = ?";
+			String update = "update rune SET id = ?, nome = ?, url = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setInt(1, rune.getId());
 			statement.setString(2, rune.getNome());
+			statement.setString(3,  rune.getUrl());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

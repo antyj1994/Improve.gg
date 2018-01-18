@@ -23,10 +23,11 @@ public class MiscDaoJDBC implements MiscDao {
 	public void save(Misc misc) {
 		Connection connection = this.dataSource.getConnection();
 		try {		
-			String insert = "insert into misc(id, nome) values (?,?)";
+			String insert = "insert into misc(id, nome, url) values (?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setLong(1, misc.getId());
-			statement.setString(2, misc.getNome());			
+			statement.setString(2, misc.getNome());	
+			statement.setString(3, misc.getUrl());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			if (connection != null) {
@@ -60,6 +61,7 @@ public class MiscDaoJDBC implements MiscDao {
 				misc = new Misc();
 				misc.setId(result.getInt("id"));				
 				misc.setNome(result.getString("nome"));
+				misc.setUrl(result.getString("url"));
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -88,6 +90,7 @@ public class MiscDaoJDBC implements MiscDao {
 				misc = new Misc();
 				misc.setId(result.getInt("id"));				
 				misc.setNome(result.getString("nome"));
+				misc.setUrl(result.getString("url"));
 				miscs.add(misc);
 			}
 		} catch (SQLException e) {
@@ -106,10 +109,11 @@ public class MiscDaoJDBC implements MiscDao {
 	public void update(Misc misc) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update misc SET id = ?, nome = ?";
+			String update = "update misc SET id = ?, nome = ?, url = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setInt(1, misc.getId());
 			statement.setString(2, misc.getNome());
+			statement.setString(3, misc.getUrl());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
