@@ -6,6 +6,7 @@ public class Partita {
 	String result;
 	long gameDuration;
 	String champName;
+	int champLevel;
 	String kda;
 	int item0;
 	int item1;
@@ -13,8 +14,62 @@ public class Partita {
 	int item3;
 	int item4;
 	int item5;
+	float golds;
+	int spell1;
+	int spell2;
+	int cs;
+	int visionScore;
 	
 	public Partita() {
+	}
+	
+	public int getChampLevel() {
+		return champLevel;
+	}
+
+	public void setChampLevel(int champLevel) {
+		this.champLevel = champLevel;
+	}
+
+	public float getGolds() {
+		return golds;
+	}
+
+	public void setGolds(int golds) {
+		int step = golds / 100;
+		this.golds = ((float)step / 10); 
+	}
+
+	public int getSpell1() {
+		return spell1;
+	}
+
+	public void setSpell1(int spell1) {
+		this.spell1 = spell1;
+	}
+
+	public int getSpell2() {
+		return spell2;
+	}
+
+	public void setSpell2(int spell2) {
+		this.spell2 = spell2;
+	}
+
+	public int getCs() {
+		return cs;
+	}
+
+	public void setCs(int cs) {
+		this.cs = cs;
+	}
+
+	public int getVisionScore() {
+		return visionScore;
+	}
+
+	public void setVisionScore(int visionScore) {
+		this.visionScore = visionScore;
 	}
 	
 	public String getResult() {
@@ -88,7 +143,8 @@ public class Partita {
 	public String toString() {
 		return "Partita [gameMode=" + gameMode + ", result=" + result + ", gameDuration=" + gameDuration
 				+ ", champName=" + champName + ", kda=" + kda + ", item0=" + item0 + ", item1=" + item1 + ", item2="
-				+ item2 + ", item3=" + item3 + ", item4=" + item4 + ", item5=" + item5 + "]";
+				+ item2 + ", item3=" + item3 + ", item4=" + item4 + ", item5=" + item5 + ", golds=" + golds
+				+ ", spell1=" + spell1 + ", spell2=" + spell2 + ", cs=" + cs + ", visionScore=" + visionScore + "]";
 	}
-	
+
 }

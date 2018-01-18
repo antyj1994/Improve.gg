@@ -25,6 +25,7 @@ import net.rithms.riot.api.endpoints.match.dto.Participant;
 import net.rithms.riot.api.endpoints.match.dto.ParticipantStats;
 import net.rithms.riot.api.endpoints.match.dto.Rune;
 import net.rithms.riot.api.endpoints.match.dto.TeamStats;
+import net.rithms.riot.api.endpoints.static_data.dto.Passive;
 import net.rithms.riot.api.endpoints.summoner.dto.Summoner;
 import net.rithms.riot.constant.Platform;
 
@@ -121,17 +122,21 @@ public class FindSummoner extends HttpServlet{
 						int cs = ps.getTotalMinionsKilled();
 						int visionScore = (int) ps.getVisionScore();
 						
-						
-						
-						
 						partita = new Partita();
 						partita.setGameMode(match.getGameMode());
 						partita.setResult(wonOrLost);
 						partita.setGameDuration(match.getGameDuration());
 						partita.setChampName(Integer.toString(part.getChampionId()));
+						partita.setChampLevel(ps.getChampLevel());
 						partita.setKda(ps.getKills()+"/"+ps.getDeaths()+"/"+ps.getAssists());
 						partita.setItem0(ps.getItem0()); partita.setItem1(ps.getItem1()); partita.setItem2(ps.getItem2());
 						partita.setItem3(ps.getItem3()); partita.setItem4(ps.getItem4()); partita.setItem5(ps.getItem5());
+						partita.setGolds(ps.getGoldEarned());
+						partita.setSpell1(part.getSpell1Id());
+						partita.setSpell2(part.getSpell2Id());
+						partita.setCs(ps.getTotalMinionsKilled());
+						partita.setVisionScore((int)ps.getVisionScore());
+						
 						partite.add(partita);
 					}
 					req.setAttribute("partita", partite);

@@ -37,4 +37,37 @@ public class FindFavourites extends HttpServlet{
 		dispacher.forward(req, resp);
 	}
 	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		HttpSession session = req.getSession();
+		String summonerName = req.getParameter("summonerName");
+		String username = (String) session.getAttribute("username");
+		boolean isLogged = false;
+		if (session.getAttribute("logged") != null) {
+			isLogged = (boolean) session.getAttribute("logged");
+		}
+		if (username != null && isLogged){
+			req.setAttribute("loggato", true);
+			Favourite toAdd = new Favourite(summonerName, username);
+			FavouriteDao favouriteDao = DatabaseManager.getInstance().getDaoFactory().getFavouriteDAO();
+			List<Favourite> favourites = favouriteDao.findByAccount(username);
+			boolean isAlreadyFavourite = false;
+			for(Favourite f: favourites) {
+				if (f.equals(toAdd)) {
+					isAlreadyFavourite = true;
+				}
+			}
+			if (!isAlreadyFavourite) {
+				favouriteDao.save(toAdd);
+				favourites.add(toAdd);
+			}
+			req.setAttribute("favourites", favourites);
+		}else {
+			req.setAttribute("loggato", false);
+		}
+		req.setAttribute("messaggio", username);
+		RequestDispatcher dispacher = req.getRequestDispatcher("Favourite.jsp");
+		dispacher.forward(req, resp);
+	}
+	
 }

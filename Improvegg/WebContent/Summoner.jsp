@@ -10,7 +10,7 @@
 		<title>improve.gg</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="common.css" type="text/css">
-		<link rel="stylesheet" href="css//summonerss.css" type="text/css">
+		<link rel="stylesheet" href="css//summonersss.css" type="text/css">
 		
 	</head>
 	
@@ -56,25 +56,74 @@
 			<div class="contianer-fluid main-container">
 				<hr class="my-2">
 				<div class="header">
-					<h2><b>${sumName}</b></h2>
-					<p>Recent Matches</p>
+					<div class="container-fluid row justify-content-around">
+						<div class="col">
+						</div>
+						<div class="col">
+							<h2><b>${sumName}</b></h2>
+							<p>Recent Matches</p>
+						</div>
+						<div class="col">
+							<div class="container">
+								<hr class="my-2">
+								<form method="POST" action="findFavourites">
+									<p>
+										Add To Favourites
+										<input type="submit" name="summonerName" value="${sumName}" class="btn btn-primary" role="button">
+									</p>
+								</form>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div class="container-fluid matches-container">
 					<c:if test="${not emptyMatches}">
 						<c:forEach var="partita" items="${partita}">
-							<hr class="my-2">
+							<hr class="my-3">
 						 	<div class="container-fluid row match-container justify-content-between">
-						 		<div class="game-stats col">
-						 			${partita.gameMode}
+						 		<div class="game-stats col-sm">
+						 			<div>
+						 				${partita.gameMode}
+						 				<hr class="my-1">
+						 				${partita.result}
+						 				<hr class="my-1">
+						 				${partita.gameDuration}
+						 			</div>
 						 		</div>
 						 		<div class="summ-stats col">
-						 			${partita.champName}
-						 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+						 			<div class="row">
+							 			<div class="col">
+							 				<img src="images//200.png" class="rounded-circle champions-image" width="50" height="50">
+							 				<footer>
+							 					${partita.champName}
+							 				</footer>
+							 			</div>
+							 			<div class="col">
+							 				<img src="images//200.png" class="rounded champion-image" width="20" height="20">
+							 				<img src="images//200.png" class="rounded-circle champions-image" width="20" height="20">
+							 				<hr class="my-1">
+							 				<img src="images//200.png" class="rounded champion-image" width="20" height="20">
+							 				<img src="images//200.png" class="rounded-circle champions-image" width="20" height="20">
+							 			</div>
+						 			</div>
 						 		</div>
 						 		<div class="kda col">
-						 			${partita.kda}
+						 			<div class="row">
+						 				<div class="champ-level col">
+								 			Level ${partita.champLevel}
+								 			<hr class="my-1">
+								 			${partita.cs} CS
+								 			<hr class="my-1">
+								 			${partita.golds} K
+								 		</div>
+						 				<div class="kda col">
+						 					${partita.kda}
+						 					<hr class="my-1">
+						 					<img src="images//200.png" class="rounded champion-image" width="25" height="25">
+						 				</div>
+						 			</div>
 						 		</div>
-						 		<div class="container items col">
+						 		<div class="items col">
 							 		<div class="container items1">
 							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
 							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
@@ -87,7 +136,7 @@
 							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
 							 		</div>
 							 	</div>
-						 		<div class="teams col md">
+						 		<div class="teams col-md">
 						 			<div class="team-row row">
 							 			<div class="container team1">
 								 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
