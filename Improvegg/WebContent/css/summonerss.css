@@ -6,15 +6,13 @@
 
 .matches-container{
 	background-color: #2bd;
-	padding-left: 0px;
-	padding-right: 0px;
 }
 
 .main-container{
 	background-color: #25f;
-	margin-left: 50px;
-	margin-right: 50px;
-	border-left: 2rem;
+	padding-bottom: 3rem;
+	padding-right: 3rem;
+	padding-left: 3rem;
 }
 
 .row {

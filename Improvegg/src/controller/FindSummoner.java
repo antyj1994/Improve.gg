@@ -23,6 +23,7 @@ import net.rithms.riot.api.endpoints.match.dto.MatchList;
 import net.rithms.riot.api.endpoints.match.dto.MatchReference;
 import net.rithms.riot.api.endpoints.match.dto.Participant;
 import net.rithms.riot.api.endpoints.match.dto.ParticipantStats;
+import net.rithms.riot.api.endpoints.match.dto.Rune;
 import net.rithms.riot.api.endpoints.match.dto.TeamStats;
 import net.rithms.riot.api.endpoints.summoner.dto.Summoner;
 import net.rithms.riot.constant.Platform;
@@ -47,7 +48,7 @@ public class FindSummoner extends HttpServlet{
 			
 		try {
 			
-			ApiConfig config = new ApiConfig().setKey("RGAPI-144d51dd-fc01-4d43-a86e-62c1082fa94a");
+			ApiConfig config = new ApiConfig().setKey("RGAPI-550d5813-b2da-4ba5-ae25-9bd43e03bc0e");
 			RiotApi api = new RiotApi(config);
 			String name = req.getParameter("summonerName");
 			String region = req.getParameter("region");
@@ -70,7 +71,7 @@ public class FindSummoner extends HttpServlet{
 					req.setAttribute("causa", "Summoner Not Found!");
 				}
 				else if (message.startsWith("40")) {
-					req.setAttribute("causa", "Sorry! We currently can't retrieve your data");
+					req.setAttribute("causa", "Sorry! We currently can't retrieve any data");
 				}
 			}
 			if (trovato) {
@@ -91,21 +92,46 @@ public class FindSummoner extends HttpServlet{
 					Partita partita = null;
 					int onlyLast = 0; //GETS ONLY THE LAST GAME
 					for(Iterator<MatchReference> it = l.iterator(); it.hasNext() && onlyLast < 5;){
-						onlyLast++;
 						MatchReference m = it.next();
+						
 						long gameId = m.getGameId();
 						Match match = api.getMatch(pl, gameId); //GET THE MATCH
 						Participant part = match.getParticipantByAccountId(id); //GET THE PLAYER
-						ParticipantStats ps = part.getStats();
-						String result = null;
+						ParticipantStats ps = part.getStats(); //GET THE PLAYER STATS
+						
+						String wonOrLost = null;
 						List<TeamStats> lts = match.getTeams();
 						for (TeamStats ts : lts) {
 							if (ts.getTeamId() == part.getTeamId()) {
-								result = ts.getWin();
+								wonOrLost = ts.getWin();
 							}
 						}
-						partita = new Partita(match.getGameMode(), result, match.getGameDuration(), Integer.toString(part.getChampionId()), ps.getKills()+"/"+ps.getDeaths()+"/"+ps.getAssists(),
-											ps.getItem0(), ps.getItem1(), ps.getItem2(), ps.getItem3(), ps.getItem4(), ps.getItem5());
+						
+						onlyLast++;
+						
+						//WORKING ON
+						
+						
+						
+						int champLevel = ps.getChampLevel();
+						int golds = ps.getGoldEarned();
+						String elo = part.getHighestAchievedSeasonTier();
+						int spell1id = part.getSpell1Id();
+						int spell2id = part.getSpell2Id();
+						int cs = ps.getTotalMinionsKilled();
+						int visionScore = (int) ps.getVisionScore();
+						
+						
+						
+						
+						partita = new Partita();
+						partita.setGameMode(match.getGameMode());
+						partita.setResult(wonOrLost);
+						partita.setGameDuration(match.getGameDuration());
+						partita.setChampName(Integer.toString(part.getChampionId()));
+						partita.setKda(ps.getKills()+"/"+ps.getDeaths()+"/"+ps.getAssists());
+						partita.setItem0(ps.getItem0()); partita.setItem1(ps.getItem1()); partita.setItem2(ps.getItem2());
+						partita.setItem3(ps.getItem3()); partita.setItem4(ps.getItem4()); partita.setItem5(ps.getItem5());
 						partite.add(partita);
 					}
 					req.setAttribute("partita", partite);
