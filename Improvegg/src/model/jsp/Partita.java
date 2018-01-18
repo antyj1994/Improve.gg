@@ -14,19 +14,7 @@ public class Partita {
 	int item4;
 	int item5;
 	
-	public Partita(String gameMode,String result, long gameDuration, String champName, String kda, int item0, int item1, int item2, int item3, int item4,
-			int item5) {
-		this.gameMode = gameMode;
-		this.result = result;
-		this.gameDuration = gameDuration;
-		this.champName = champName;
-		this.kda = kda;
-		this.item0 = item0;
-		this.item1 = item1;
-		this.item2 = item2;
-		this.item3 = item3;
-		this.item4 = item4;
-		this.item5 = item5;
+	public Partita() {
 	}
 	
 	public String getResult() {

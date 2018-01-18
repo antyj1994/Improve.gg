@@ -7,15 +7,7 @@ a:hover {
 }
 
 .btn,
-.btn:focus,
-.btn-primary,
-.btn-primary:focus,
-.btn-success,
-.btn-success:focus,
-.btn-warning,
-.btn-warning:focus,
-.btn-danger,
-.btn-danger:focus {
+.btn:focus{
   	color: #eee;
   	text-shadow: none;
   	background-color: #2bd;

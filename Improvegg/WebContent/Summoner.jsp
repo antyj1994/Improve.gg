@@ -10,7 +10,7 @@
 		<title>improve.gg</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="common.css" type="text/css">
-		<link rel="stylesheet" href="css//summoner.css" type="text/css">
+		<link rel="stylesheet" href="css//summonerss.css" type="text/css">
 		
 	</head>
 	
@@ -59,38 +59,56 @@
 					<h2><b>${sumName}</b></h2>
 					<p>Recent Matches</p>
 				</div>
-				<div class="container matches-container">
+				<div class="container-fluid matches-container">
 					<c:if test="${not emptyMatches}">
 						<c:forEach var="partita" items="${partita}">
 							<hr class="my-2">
-						 	<div class="container row match-container justify-content-between">
+						 	<div class="container-fluid row match-container justify-content-between">
 						 		<div class="game-stats col">
 						 			${partita.gameMode}
 						 		</div>
 						 		<div class="summ-stats col">
 						 			${partita.champName}
+						 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
 						 		</div>
 						 		<div class="kda col">
 						 			${partita.kda}
 						 		</div>
 						 		<div class="container items col">
 							 		<div class="container items1">
-							 			${partita.item0} ${partita.item1} ${partita.item2}	
+							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 			<hr class="my-2">
 							 		</div>
 							 		<div class="container items2">
-							 			${partita.item3} ${partita.item4} ${partita.item5}
+							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
 							 		</div>
 							 	</div>
-						 		<div class="teams col">
+						 		<div class="teams col md">
 						 			<div class="team-row row">
 							 			<div class="container team1">
-								 			sum1 sum2 sum3 sum4 sum5
+								 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 				<hr class="my-2">
 								 		</div>
 								 		<div class="container team2">
-								 			sum6 sum7 sum8 sum9 sum0
+								 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
 								 		</div>
 								 	</div>
 						 		</div>
+						 			<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    									<span class="sr-only">Toggle Dropdown</span>
+  									</button>
 						 	</div>
 						</c:forEach>
 					</c:if>
