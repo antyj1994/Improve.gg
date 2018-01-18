@@ -45,12 +45,12 @@ public class UtilDao {
 		try {
 			String delete = "create SEQUENCE sequenza_id;"
 					+ "create table account (nome varchar(30) primary key, password varchar(30));"
-					+ "create table champion (\"id\" int primary key, nome varchar(30));"
-					+ "create table item (\"id\" int primary key, nome varchar(300));"
-					+ "create table rune (\"id\" int primary key, nome varchar(100));"
-					+ "create table skill (\"id\" int primary key, nome varchar(30));"
-					+ "create table spell (\"id\" int primary key, nome varchar(100));"
-					+ "create table misc (\"id\" int primary key, nome varchar(30));"
+					+ "create table champion (\"id\" int primary key, nome varchar(30), url varchar(2083));"
+					+ "create table item (\"id\" int primary key, nome varchar(300), url varchar(2083));"
+					+ "create table rune (\"id\" int primary key, nome varchar(100), url varchar(2083));"
+					+ "create table skill (\"id\" int primary key, nome varchar(30), url varchar(2083));"
+					+ "create table spell (\"id\" int primary key, nome varchar(100), url varchar(2083));"
+					+ "create table misc (\"id\" int primary key, nome varchar(30), url varchar(2083));"
 					+ "create table favourite (nome varchar(30) primary key, account varchar(30));";
 			PreparedStatement statement = connection.prepareStatement(delete);
 			statement.executeUpdate();

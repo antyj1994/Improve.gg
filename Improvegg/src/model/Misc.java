@@ -4,12 +4,14 @@ public class Misc {
 
 	private int id;
 	private String nome;
+	private String url;
 	
 	public Misc() {}
 	
-	public Misc(int id, String nome) {
+	public Misc(int id, String nome, String url) {
 		this.id = id;
 		this.nome = nome;
+		this.url = url;
 	}
 	
 	public int getId() {
@@ -25,9 +27,19 @@ public class Misc {
 		this.nome = nome;
 	}
 	
+	public String getUrl() {
+		
+		return url;
+	}
+	
+	public void setUrl(String url) {
+		
+		this.url=url;
+	}
+	
 	@Override
 	public String toString() {
-		return "Misc [id=" + id + ", nome=" + nome + "]";
+		return "Misc [id=" + id + ", nome=" + nome + ", url" + url +"]";
 	}
 	
 }

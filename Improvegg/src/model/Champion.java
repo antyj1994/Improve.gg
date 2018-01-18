@@ -4,12 +4,14 @@ public class Champion {
 	
 	private int id;
 	private String nome;
+	private String url;
 	
 	public Champion() {}
 	
-	public Champion(int id, String nome) {
+	public Champion(int id, String nome, String url) {
 		this.id = id;
 		this.nome = nome;
+		this.url=url;
 	}
 	
 	public int getId() {
@@ -25,9 +27,19 @@ public class Champion {
 		this.nome = nome;
 	}
 	
+	public String getUrl() {
+		
+		return url;
+	}
+	
+	public void setUrl(String url) {
+		
+		this.url=url;
+	}
+	
 	@Override
 	public String toString() {
-		return "Champion [id=" + id + ", nome=" + nome + "]";
+		return "Champion [id=" + id + ", nome=" + nome + ", url="+ url +"]";
 	}
 	
 }

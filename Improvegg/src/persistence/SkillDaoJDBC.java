@@ -26,7 +26,7 @@ public class SkillDaoJDBC implements SkillDao{
 			String insert = "insert into skill(id, nome) values (?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setLong(1, skill.getId());
-			statement.setString(2, skill.getNome());			
+			statement.setString(2, skill.getNome());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			if (connection != null) {
@@ -60,6 +60,7 @@ public class SkillDaoJDBC implements SkillDao{
 				skill = new Skill();
 				skill.setId(result.getInt("id"));				
 				skill.setNome(result.getString("nome"));
+				skill.setUrl(result.getString("url"));
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -88,6 +89,7 @@ public class SkillDaoJDBC implements SkillDao{
 				skill = new Skill();
 				skill.setId(result.getInt("id"));				
 				skill.setNome(result.getString("nome"));
+				skill.setUrl(result.getString("url"));
 				skills.add(skill);
 			}
 		} catch (SQLException e) {
@@ -106,10 +108,11 @@ public class SkillDaoJDBC implements SkillDao{
 	public void update(Skill skill) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update skill SET id = ?, nome = ?";
+			String update = "update skill SET id = ?, nome = ?, url = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setInt(1, skill.getId());
 			statement.setString(2, skill.getNome());
+			statement.setString(3, skill.getUrl());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
