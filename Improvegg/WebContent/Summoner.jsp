@@ -94,7 +94,7 @@
 						 		<div class="summ-stats col">
 						 			<div class="row">
 							 			<div class="col">
-							 				<img src="images//200.png" class="rounded-circle champions-image" width="50" height="50">
+							 				<img src="${partita.champUrl}" class="rounded-circle champions-image" width="50" height="50">
 							 				<footer>
 							 					${partita.champName}
 							 				</footer>
@@ -122,7 +122,7 @@
 						 					<hr class="my-1">
 						 					<img src="images//200.png" class="rounded champion-image" width="25" height="25">
 						 					<hr class="my-1">
-						 					$partita.
+						 					${partita.lane}
 						 				</div>
 						 			</div>
 						 		</div>

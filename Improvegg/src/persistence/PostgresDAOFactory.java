@@ -10,10 +10,9 @@ class PostgresDAOFactory extends DAOFactory {
 		try {
 			Class.forName("org.postgresql.Driver").getConstructor().newInstance();
 			//questi vanno messi in file di configurazione!!!	
-//			dataSource=new DataSource("jdbc:postgresql://52.39.164.176:5432/xx","xx","p@xx");
-			//dataSource=new DataSource("jdbc:postgresql://localhost:5432/Improvegg","postgres","postgres");
+			//dataSource=new DataSource("jdbc:postgresql://52.39.164.176:5432/xx","xx","p@xx");
 			dataSource = new DataSource("jdbc:postgresql://horton.elephantsql.com:5432/njggtfej",
-                    "njggtfej","QgLyoMomCLcGAAbs9y3pCNNaTv1K9ADP");
+                    					"njggtfej","QgLyoMomCLcGAAbs9y3pCNNaTv1K9ADP");
 		} 
 		catch (Exception e) {
 			System.err.println("PostgresDAOFactory.class: failed to load MySQL JDBC driver\n"+e);
