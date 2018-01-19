@@ -7,6 +7,7 @@ public class Partita {
 	long gameDuration;
 	String champName;
 	int champLevel;
+	String champUrl;
 	String kda;
 	int item0;
 	int item1;
@@ -19,16 +20,34 @@ public class Partita {
 	int spell2;
 	int cs;
 	int visionScore;
+	String lane;
 	
 	public Partita() {
 	}
 	
+	public String getLane() {
+		return lane;
+	}
+
+	public void setLane(String lane) {
+		this.lane = lane;
+	}
+
+
 	public int getChampLevel() {
 		return champLevel;
 	}
 
 	public void setChampLevel(int champLevel) {
 		this.champLevel = champLevel;
+	}
+
+	public String getChampUrl() {
+		return champUrl;
+	}
+
+	public void setChampUrl(String champUrl) {
+		this.champUrl = champUrl;
 	}
 
 	public float getGolds() {

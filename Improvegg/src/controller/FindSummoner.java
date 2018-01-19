@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.google.gson.*;
+
+import model.Champion;
 import model.jsp.Partita;
 
 import net.rithms.riot.api.ApiConfig;
@@ -28,6 +30,10 @@ import net.rithms.riot.api.endpoints.match.dto.TeamStats;
 import net.rithms.riot.api.endpoints.static_data.dto.Passive;
 import net.rithms.riot.api.endpoints.summoner.dto.Summoner;
 import net.rithms.riot.constant.Platform;
+import persistence.DAOFactory;
+import persistence.DatabaseManager;
+import persistence.dao.ChampionDao;
+import persistence.dao.FavouriteDao;
 
 public class FindSummoner extends HttpServlet{
 	
@@ -113,20 +119,15 @@ public class FindSummoner extends HttpServlet{
 						//WORKING ON
 						
 						
-						
-						int champLevel = ps.getChampLevel();
-						int golds = ps.getGoldEarned();
-						String elo = part.getHighestAchievedSeasonTier();
-						int spell1id = part.getSpell1Id();
-						int spell2id = part.getSpell2Id();
-						int cs = ps.getTotalMinionsKilled();
-						int visionScore = (int) ps.getVisionScore();
+						DAOFactory daoFactory = DatabaseManager.getInstance().getDaoFactory();
+						ChampionDao championDao = daoFactory.getChampionDAO();
+						Champion champion = championDao.findByPrimaryKey(part.getChampionId());
 						
 						partita = new Partita();
 						partita.setGameMode(match.getGameMode());
 						partita.setResult(wonOrLost);
 						partita.setGameDuration(match.getGameDuration());
-						partita.setChampName(Integer.toString(part.getChampionId()));
+						partita.setChampName(champion.getNome());
 						partita.setChampLevel(ps.getChampLevel());
 						partita.setKda(ps.getKills()+"/"+ps.getDeaths()+"/"+ps.getAssists());
 						partita.setItem0(ps.getItem0()); partita.setItem1(ps.getItem1()); partita.setItem2(ps.getItem2());
@@ -136,7 +137,8 @@ public class FindSummoner extends HttpServlet{
 						partita.setSpell2(part.getSpell2Id());
 						partita.setCs(ps.getTotalMinionsKilled());
 						partita.setVisionScore((int)ps.getVisionScore());
-						
+						partita.setLane(m.getLane());
+						partita.setChampUrl(champion.getUrl());
 						partite.add(partita);
 					}
 					req.setAttribute("partita", partite);
