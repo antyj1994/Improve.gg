@@ -9,6 +9,15 @@ public class Partita {
 	int champLevel;
 	String kda;
 	String champUrl;
+	String itemUrl0;
+	String itemUrl1;
+	String itemUrl2;
+	String itemUrl3;
+	String itemUrl4;
+	String itemUrl5;
+	String spellUrl1;
+	String spellUrl2;
+	String runeUrl;
 	int item0;
 	int item1;
 	int item2;
@@ -23,6 +32,25 @@ public class Partita {
 	String lane;
 	
 	public Partita() {
+	}
+	
+	
+	
+	public void setSpellUrl1(String spellUrl1) {
+		this.spellUrl1=spellUrl1;
+		
+	}
+	public String getSpellUrl1() {
+		return spellUrl1;
+	}
+	
+
+	public void setSpellUrl2(String spellUrl2) {
+		this.spellUrl2=spellUrl2;
+		
+	}
+	public String getSpellUrl2() {
+		return spellUrl2;
 	}
 	
 	public String getLane() {
@@ -49,6 +77,66 @@ public class Partita {
 	public void setChampUrl(String champUrl) {
 		this.champUrl = champUrl;
 	}
+	
+	public String getItemUrl0() {
+		return itemUrl0;
+	}
+	
+	public void setItemUrl0(String itemUrl0) {
+		this.itemUrl0=itemUrl0;
+		
+	}
+	public String getItemUrl1() {
+		return itemUrl1;
+	}
+	
+	public void setItemUrl1(String itemUrl1) {
+		this.itemUrl1=itemUrl1;
+		
+	}
+	public String getItemUrl2() {
+		return itemUrl2;
+	}
+	
+	public void setItemUrl2(String itemUrl2) {
+		this.itemUrl2=itemUrl2;
+		
+	}
+	public String getItemUrl3() {
+		return itemUrl3;
+	}
+	
+	public void setItemUrl3(String itemUrl3) {
+		this.itemUrl3=itemUrl3;
+		
+	}
+	public String getItemUrl4() {
+		return itemUrl4;
+	}
+	
+	public void setItemUrl4(String itemUrl4) {
+		this.itemUrl4=itemUrl4;
+		
+	}
+	public String getItemUrl5() {
+		return itemUrl5;
+	}
+	
+	public void setItemUrl5(String itemUrl5) {
+		this.itemUrl5=itemUrl5;
+		
+	}
+	
+	public String getRuneUrl() {
+		return runeUrl;
+	}
+	
+	public void setRuneUrl(String runeUrl) {
+		this.runeUrl=runeUrl;
+		
+	}
+
+
 
 	public float getGolds() {
 		return golds;

@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="js/jquery-3.2.1.js"></script>
 <script src="js/Sum.js"></script>
+<script src="http://tooltip.lolbuilder.net/v/0.1.1/release/loltip.min.js"></script>
 <html>
 
 	<head>
@@ -12,6 +13,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="common.css" type="text/css">
 		<link rel="stylesheet" href="css//summonersss.css" type="text/css">
+		<link rel="stylesheet" href="css//Tooltip.css" type="text/css">
 		
 	</head>
 	
@@ -94,17 +96,14 @@
 						 		<div class="summ-stats col">
 						 			<div class="row">
 							 			<div class="col">
-							 				<img src="${partita.champUrl}" class="rounded-circle champions-image" width="50" height="50">
+							 				<img src="${partita.champUrl}" class="rounded champions-image" width="75" height="75">
 							 				<footer>
 							 					${partita.champName}
 							 				</footer>
 							 			</div>
 							 			<div class="col">
-							 				<img src="images//200.png" class="rounded champion-image" width="20" height="20">
-							 				<img src="images//200.png" class="rounded-circle champions-image" width="20" height="20">
-							 				<hr class="my-1">
-							 				<img src="images//200.png" class="rounded champion-image" width="20" height="20">
-							 				<img src="images//200.png" class="rounded-circle champions-image" width="20" height="20">
+							 				<img src="${partita.spellUrl1}" class="rounded champions-image" width="50" height="50">
+							 				<img src="${partita.spellUrl2}" class="rounded champions-image" width="50" height="50">
 							 			</div>
 						 			</div>
 						 		</div>
@@ -120,41 +119,43 @@
 						 				<div class="kda col">
 						 					${partita.kda}
 						 					<hr class="my-1">
-						 					<img src="images//200.png" class="rounded champion-image" width="25" height="25">
+						 					<img src="items//No_item.png" class="rounded champion-image" width="25" height="25">
 						 					<hr class="my-1">
 						 					${partita.lane}
 						 				</div>
 						 			</div>
 						 		</div>
 						 		<div class="items col">
+						 		
 							 		<div class="container items1">
-							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
-							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
-							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 			<img src="${partita.itemUrl0}" class="rounded champion-image" width="30" height="30">
+							 			<img src="${partita.itemUrl1}" class="rounded champion-image" width="30" height="30">
+							 			<img src="${partita.itemUrl2}" class="rounded champion-image" width="30" height="30">
 							 			<hr class="my-2">
 							 		</div>
 							 		<div class="container items2">
-							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
-							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
-							 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+							 			<img src="${partita.itemUrl3}" class="rounded champion-image" width="30" height="30">
+							 			<img src="${partita.itemUrl4}" class="rounded champion-image" width="30" height="30">
+							 			<img src="${partita.itemUrl5}" class="rounded champion-image" width="30" height="30">
 							 		</div>
+							 	
 							 	</div>
 						 		<div class="teams col-md">
 						 			<div class="team-row row">
 							 			<div class="container team1">
-								 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+								 			<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
 							 				<hr class="my-2">
 								 		</div>
 								 		<div class="container team2">
-								 			<img src="images//200.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="images//200.png" class="rounded champion-image" width="30" height="30">
+								 			<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
 								 		</div>
 								 	</div>
 						 		</div>

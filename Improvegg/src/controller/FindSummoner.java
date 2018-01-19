@@ -15,6 +15,8 @@ import javax.servlet.http.HttpSession;
 import com.google.gson.*;
 
 import model.Champion;
+import model.Item;
+import model.Spell;
 import model.jsp.Partita;
 
 import net.rithms.riot.api.ApiConfig;
@@ -34,6 +36,8 @@ import persistence.DAOFactory;
 import persistence.DatabaseManager;
 import persistence.dao.ChampionDao;
 import persistence.dao.FavouriteDao;
+import persistence.dao.ItemDao;
+import persistence.dao.SpellDao;
 
 public class FindSummoner extends HttpServlet{
 	
@@ -122,6 +126,17 @@ public class FindSummoner extends HttpServlet{
 						DAOFactory daoFactory = DatabaseManager.getInstance().getDaoFactory();
 						ChampionDao championDao = daoFactory.getChampionDAO();
 						Champion champion = championDao.findByPrimaryKey(part.getChampionId());
+					
+						ItemDao itemDao = daoFactory.getItemDAO();
+						Item item0 = itemDao.findByPrimaryKey(ps.getItem0());
+						Item item1 = itemDao.findByPrimaryKey(ps.getItem1());
+						Item item2 = itemDao.findByPrimaryKey(ps.getItem2());
+						Item item3 = itemDao.findByPrimaryKey(ps.getItem3());
+						Item item4 = itemDao.findByPrimaryKey(ps.getItem4());
+						Item item5 = itemDao.findByPrimaryKey(ps.getItem5());
+						SpellDao spellDao = daoFactory.getSpellDAO();
+						Spell spell1 = spellDao.findByPrimaryKey(part.getSpell1Id());
+						Spell spell2 = spellDao.findByPrimaryKey(part.getSpell2Id());
 						
 						partita = new Partita();
 						partita.setGameMode(match.getGameMode());
@@ -130,15 +145,57 @@ public class FindSummoner extends HttpServlet{
 						partita.setChampName(champion.getNome());
 						partita.setChampLevel(ps.getChampLevel());
 						partita.setKda(ps.getKills()+"/"+ps.getDeaths()+"/"+ps.getAssists());
-						partita.setItem0(ps.getItem0()); partita.setItem1(ps.getItem1()); partita.setItem2(ps.getItem2());
-						partita.setItem3(ps.getItem3()); partita.setItem4(ps.getItem4()); partita.setItem5(ps.getItem5());
 						partita.setGolds(ps.getGoldEarned());
-						partita.setSpell1(part.getSpell1Id());
-						partita.setSpell2(part.getSpell2Id());
 						partita.setCs(ps.getTotalMinionsKilled());
 						partita.setVisionScore((int)ps.getVisionScore());
 						partita.setLane(m.getLane());
 						partita.setChampUrl(champion.getUrl());
+						partita.setSpellUrl1(spell1.getUrl());
+						partita.setSpellUrl2(spell2.getUrl());
+						
+						if (item0!=null) {
+						partita.setItemUrl0(item0.getUrl());
+						}
+						else {
+							partita.setItemUrl0("items//No_item.png");
+						}
+						
+						if (item1!=null) {
+							partita.setItemUrl1(item1.getUrl());
+						}
+						else {
+							partita.setItemUrl1("items//No_item.png");
+						}
+						
+						if(item2!=null) {
+							partita.setItemUrl2(item2.getUrl());
+						}
+						else {
+							partita.setItemUrl2("items//No_item.png");
+						}
+						
+						if(item3!=null) {
+							partita.setItemUrl3(item3.getUrl());
+						}
+						else {
+							partita.setItemUrl3("items//No_item.png");
+						}
+						
+						if(item4!=null) {
+							partita.setItemUrl4(item4.getUrl());
+						}
+						else {
+							partita.setItemUrl4("items//No_item.png");
+						}
+						
+						if(item5!=null) {
+							partita.setItemUrl5(item5.getUrl());
+						}
+						else {
+							partita.setItemUrl5("items//No_item.png");
+						}
+						
+						
 						partite.add(partita);
 					}
 					req.setAttribute("partita", partite);
