@@ -7,8 +7,8 @@ public class Partita {
 	long gameDuration;
 	String champName;
 	int champLevel;
-	String champUrl;
 	String kda;
+	String champUrl;
 	int item0;
 	int item1;
 	int item2;
