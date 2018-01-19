@@ -49,7 +49,7 @@ public class FindSummoner extends HttpServlet{
 			
 		try {
 			
-			ApiConfig config = new ApiConfig().setKey("RGAPI-550d5813-b2da-4ba5-ae25-9bd43e03bc0e");
+			ApiConfig config = new ApiConfig().setKey("RGAPI-8fede10a-0cc8-4a2a-aca2-a99887903ed6");
 			RiotApi api = new RiotApi(config);
 			String name = req.getParameter("summonerName");
 			String region = req.getParameter("region");
