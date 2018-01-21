@@ -181,7 +181,7 @@ public class TestDatabaseMain {
 		Item item11= new Item(1033, "Cappa anti-magia", "items//Null-Magic_Mantle_item.png");
 		Item item12= new Item(1036, "Spada lunga", "items//Long_Sword_item.png");
 		Item item13= new Item(1037, "Piccone", "items//Pickaxe_item.png");
-		Item item14= new Item(1038, "M.C. Spada", "items//B.F._Sword_item.png");
+		Item item14= new Item(1038, "M.C. Spada", "items//B._F._Sword_item.png");
 		Item item15= new Item(1039, "Talismano del cacciatore", "items//Hunter's_Talisman_item.png");
 		Item item16= new Item(1041, "Machete del cacciatore", "items//Hunter's_Machete_item.png");
 		Item item17= new Item(1042, "Daga", "items//Dagger_item.png");

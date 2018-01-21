@@ -2,8 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="js/jquery-3.2.1.js"></script>
-<script src="js/Sum.js"></script>
-<script src="http://tooltip.lolbuilder.net/v/0.1.1/release/loltip.min.js"></script>
+<script src="js/Login.js"></script>
+<link rel="stylesheet" href="css/tool.css" type="text/css">
 <html>
 
 	<head>
@@ -13,7 +13,18 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="common.css" type="text/css">
 		<link rel="stylesheet" href="css//summonersss.css" type="text/css">
-		<link rel="stylesheet" href="css//Tooltip.css" type="text/css">
+		<script>
+// Initialize tooltip component
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+
+// Initialize popover component
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+</script>
+	
 		
 	</head>
 	
@@ -23,6 +34,7 @@
 		<nav class="navbar navbar-expand-lg justify-content-between">
 	 		<a href="home" class="navbar-brand">
 	 			<img class="logo" src="images//im-prove.png" height="80" width="180">
+	 			<div class="tooltip">YOU DIPSHIT</div>
 	 		</a>
 	  		<c:if test="${not loggato}">
 	  			<a href="checkLogin" role="button" class="btn btn-primary" >Login</a>
@@ -56,7 +68,7 @@
 		</nav>
 		
 		<c:if test="${trovato}">
-			<div class="contianer-fluid main-container">
+			<div class="container-fluid main-container">
 				<hr class="my-2">
 				<div class="header">
 					<div class="container-fluid row justify-content-around">
@@ -71,6 +83,7 @@
 								<hr class="my-2">
 								<form method="POST" action="findFavourites">
 									<p>
+									
 										Add To Favourites
 										<input type="submit" name="summonerName" value="${sumName}" class="btn btn-primary" role="button">
 									</p>
@@ -79,6 +92,7 @@
 						</div>
 					</div>
 				</div>
+				
 				<div class="container-fluid matches-container">
 					<c:if test="${not emptyMatches}">
 						<c:forEach var="partita" items="${partita}">
@@ -128,7 +142,7 @@
 						 		<div class="items col">
 						 		
 							 		<div class="container items1">
-							 			<img src="${partita.itemUrl0}" class="rounded champion-image" width="30" height="30">
+							 			<img src="${partita.itemUrl0}" class="rounded champion-image" width="30" height="30" title="${partita.itemName}" data-toggle="tooltip" data-placement="top">
 							 			<img src="${partita.itemUrl1}" class="rounded champion-image" width="30" height="30">
 							 			<img src="${partita.itemUrl2}" class="rounded champion-image" width="30" height="30">
 							 			<hr class="my-2">
@@ -178,7 +192,7 @@
 			</div>
 		</c:if>
 		<c:if test="${not trovato}">
-			<div class="contianer-fluid main-container">
+			<div class="container-fluid main-container">
 				<hr class="my-2">
 				<div class="header">
 					<h2>

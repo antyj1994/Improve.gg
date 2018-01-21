@@ -1,12 +1,12 @@
 @charset "ISO-8859-1";
-.tooltip {
+.tooltip3 {
     position: relative;
     display: inline-block;
     border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
 
 /* Tooltip text */
-.tooltip .tooltiptext {
+.tooltip4 .tooltiptext4 {
     visibility: hidden;
     width: 120px;
     background-color: #555;
@@ -28,7 +28,7 @@
 }
 
 /* Tooltip arrow */
-.tooltip .tooltiptext::after {
+.tooltip5 .tooltiptext::after {
     content: "";
     position: absolute;
     top: 100%;

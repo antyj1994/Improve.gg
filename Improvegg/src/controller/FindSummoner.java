@@ -59,7 +59,7 @@ public class FindSummoner extends HttpServlet{
 			
 		try {
 			
-			ApiConfig config = new ApiConfig().setKey("RGAPI-8fede10a-0cc8-4a2a-aca2-a99887903ed6");
+			ApiConfig config = new ApiConfig().setKey("RGAPI-dd6d9a5f-fb02-4a15-ba8b-7b16a8b92fc7");
 			RiotApi api = new RiotApi(config);
 			String name = req.getParameter("summonerName");
 			String region = req.getParameter("region");
@@ -153,11 +153,15 @@ public class FindSummoner extends HttpServlet{
 						partita.setSpellUrl1(spell1.getUrl());
 						partita.setSpellUrl2(spell2.getUrl());
 						
+						
+						
 						if (item0!=null) {
 						partita.setItemUrl0(item0.getUrl());
+						partita.setItemName(item0.getNome());
 						}
 						else {
 							partita.setItemUrl0("items//No_item.png");
+							partita.setItemName("none");
 						}
 						
 						if (item1!=null) {

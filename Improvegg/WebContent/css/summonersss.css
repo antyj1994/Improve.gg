@@ -6,6 +6,7 @@
 
 .matches-container{
 	background-color: #2bd;
+	overflow: visible;
 }
 
 .main-container{
@@ -13,10 +14,12 @@
 	padding-bottom: 3rem;
 	padding-right: 3rem;
 	padding-left: 3rem;
+	overflow: visible;
 }
 
 .champions-image{
 	margin-bottom: 1px;
+	overflow: visible;
 }
 
 .row {

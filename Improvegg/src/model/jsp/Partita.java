@@ -24,6 +24,7 @@ public class Partita {
 	int item3;
 	int item4;
 	int item5;
+	String itemName;
 	float golds;
 	int spell1;
 	int spell2;
@@ -34,7 +35,14 @@ public class Partita {
 	public Partita() {
 	}
 	
+	public void setItemName(String itemName) {
+		
+		this.itemName=itemName;
+	}
 	
+	public String getItemName() {
+		return itemName;
+	}
 	
 	public void setSpellUrl1(String spellUrl1) {
 		this.spellUrl1=spellUrl1;
