@@ -142,15 +142,15 @@ $(function () {
 						 		<div class="items col">
 						 		
 							 		<div class="container items1">
-							 			<img src="${partita.itemUrl0}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item0}'/>" data-toggle="tooltip" data-placement="top">
-							 			<img src="${partita.itemUrl1}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item1}'/>" data-toggle="tooltip" data-placement="top">
-							 			<img src="${partita.itemUrl2}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item2}'/>" data-toggle="tooltip" data-placement="top">
+							 			<img src="${partita.itemUrl0}" class="rounded champion-image" width="30" height="30" title="<img src='tooltip//notworking2.png'>" data-toggle="tooltip" data-placement="top">
+							 			<img src="${partita.itemUrl1}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item1}'>" data-toggle="tooltip" data-placement="top">
+							 			<img src="${partita.itemUrl2}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item2}'>" data-toggle="tooltip" data-placement="top">
 							 			<hr class="my-2">
 							 		</div>
 							 		<div class="container items2">
-							 			<img src="${partita.itemUrl3}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item3}'/>" data-toggle="tooltip" data-placement="top">
-							 			<img src="${partita.itemUrl4}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item4}'/>" data-toggle="tooltip" data-placement="top">
-							 			<img src="${partita.itemUrl5}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item5}'/>" data-toggle="tooltip" data-placement="top">
+							 			<img src="${partita.itemUrl3}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item3}'>" data-toggle="tooltip" data-placement="top">
+							 			<img src="${partita.itemUrl4}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item4}'>" data-toggle="tooltip" data-placement="top">
+							 			<img src="${partita.itemUrl5}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item5}'>" data-toggle="tooltip" data-placement="top">
 							 		</div>
 							 	
 							 	</div>
