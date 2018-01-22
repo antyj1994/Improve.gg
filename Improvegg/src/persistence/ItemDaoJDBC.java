@@ -23,11 +23,12 @@ public class ItemDaoJDBC implements ItemDao{
 	public void save(Item item) {
 		Connection connection = this.dataSource.getConnection();
 		try {		
-			String insert = "insert into item(id, nome, url) values (?,?,?)";
+			String insert = "insert into item(id, nome, url, tooltip) values (?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setLong(1, item.getId());
 			statement.setString(2, item.getNome());		
 			statement.setString(3,  item.getUrl());
+			statement.setString(4,  item.getTooltip());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			if (connection != null) {
@@ -62,6 +63,7 @@ public class ItemDaoJDBC implements ItemDao{
 				item.setId(result.getInt("id"));				
 				item.setNome(result.getString("nome"));
 				item.setUrl(result.getString("url"));
+				item.setTooltip(result.getString("tooltip"));
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -90,6 +92,7 @@ public class ItemDaoJDBC implements ItemDao{
 				item.setId(result.getInt("id"));				
 				item.setNome(result.getString("nome"));
 				item.setUrl(result.getString("url"));
+				item.setTooltip(result.getString("tooltip"));
 				items.add(item);
 			}
 		} catch (SQLException e) {
@@ -108,11 +111,12 @@ public class ItemDaoJDBC implements ItemDao{
 	public void update(Item item) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update item SET id = ?, nome = ?, url= ?";
+			String update = "update item SET id = ?, nome = ?, url= ?, tooltip= ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setInt(1, item.getId());
 			statement.setString(2, item.getNome());
 			statement.setString(3,  item.getUrl());
+			statement.setString(4, item.getTooltip());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

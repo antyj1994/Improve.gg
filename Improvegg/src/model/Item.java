@@ -5,14 +5,16 @@ public class Item {
 	private int id;
 	private String nome;
 	private String url;
+	private String tooltip;
 
 	
 	public Item() {}
 	
-	public Item(int id, String nome, String url) {
+	public Item(int id, String nome, String url, String tooltip) {
 		this.id = id;
 		this.nome = nome;
 		this.url = url;
+		this.tooltip=tooltip;
 
 	}
 	
@@ -39,10 +41,19 @@ public class Item {
 		this.url=url;
 	}
 
+	public String getTooltip() {
+		
+		return tooltip;
+	}
+	
+	public void setTooltip(String tooltip) {
+		
+		this.tooltip=tooltip;
+	}
 	
 	@Override
 	public String toString() {
-		return "Item [id=" + id + ", nome=" + nome + ", url="+ url +"]";
+		return "Item [id=" + id + ", nome=" + nome + ", url="+ url + ", tooltip="+ tooltip+"]";
 	}
 
 }

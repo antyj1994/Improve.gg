@@ -22,11 +22,12 @@ public class SpellDaoJDBC implements SpellDao{
 	public void save(Spell spell) {
 		Connection connection = this.dataSource.getConnection();
 		try {		
-			String insert = "insert into spell(id, nome, url) values (?,?,?)";
+			String insert = "insert into spell(id, nome, url, tooltip) values (?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setLong(1, spell.getId());
 			statement.setString(2, spell.getNome());		
 			statement.setString(3, spell.getUrl());
+			statement.setString(4, spell.getTooltip());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			if (connection != null) {
@@ -61,6 +62,7 @@ public class SpellDaoJDBC implements SpellDao{
 				spell.setId(result.getInt("id"));				
 				spell.setNome(result.getString("nome"));
 				spell.setUrl(result.getString("url"));
+				spell.setTooltip(result.getString("tooltip"));
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -90,6 +92,7 @@ public class SpellDaoJDBC implements SpellDao{
 				spell.setId(result.getInt("id"));				
 				spell.setNome(result.getString("nome"));
 				spell.setUrl(result.getString("url"));
+				spell.setTooltip(result.getString("tooltip"));
 				spells.add(spell);
 			}
 		} catch (SQLException e) {
@@ -108,11 +111,12 @@ public class SpellDaoJDBC implements SpellDao{
 	public void update(Spell spell) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update spell SET id = ?, nome = ?, url = ?";
+			String update = "update spell SET id = ?, nome = ?, url = ?, tooltip = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setInt(1, spell.getId());
 			statement.setString(2, spell.getNome());
 			statement.setString(3, spell.getUrl());
+			statement.setString(4, spell.getTooltip());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());

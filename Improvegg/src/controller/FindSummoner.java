@@ -59,7 +59,7 @@ public class FindSummoner extends HttpServlet{
 			
 		try {
 			
-			ApiConfig config = new ApiConfig().setKey("RGAPI-dd6d9a5f-fb02-4a15-ba8b-7b16a8b92fc7");
+			ApiConfig config = new ApiConfig().setKey("RGAPI-bee3b60a-75df-48ed-80c1-72fb6466df8c");
 			RiotApi api = new RiotApi(config);
 			String name = req.getParameter("summonerName");
 			String region = req.getParameter("region");
@@ -157,46 +157,56 @@ public class FindSummoner extends HttpServlet{
 						
 						if (item0!=null) {
 						partita.setItemUrl0(item0.getUrl());
-						partita.setItemName(item0.getNome());
+						partita.setItem0(item0.getTooltip());
 						}
 						else {
 							partita.setItemUrl0("items//No_item.png");
-							partita.setItemName("none");
+							partita.setItem0("items//No_item.png");
 						}
 						
 						if (item1!=null) {
 							partita.setItemUrl1(item1.getUrl());
+							partita.setItem1(item1.getTooltip());
 						}
 						else {
 							partita.setItemUrl1("items//No_item.png");
+							partita.setItem1("items//No_item.png");
 						}
 						
 						if(item2!=null) {
 							partita.setItemUrl2(item2.getUrl());
+							partita.setItem2(item2.getTooltip());
 						}
 						else {
 							partita.setItemUrl2("items//No_item.png");
+							partita.setItem2("items//No_item.png");
 						}
 						
 						if(item3!=null) {
 							partita.setItemUrl3(item3.getUrl());
+							partita.setItem3(item3.getTooltip());
 						}
 						else {
 							partita.setItemUrl3("items//No_item.png");
+							partita.setItem3("items//No_item.png");
 						}
 						
 						if(item4!=null) {
 							partita.setItemUrl4(item4.getUrl());
+							partita.setItem4(item4.getTooltip());
 						}
 						else {
 							partita.setItemUrl4("items//No_item.png");
+							partita.setItem4("items//No_item.png");
 						}
 						
 						if(item5!=null) {
 							partita.setItemUrl5(item5.getUrl());
+							partita.setItem5(item5.getTooltip());
 						}
 						else {
 							partita.setItemUrl5("items//No_item.png");
+							partita.setItem5("items//No_item.png");
 						}
 						
 						

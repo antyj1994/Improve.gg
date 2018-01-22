@@ -5,13 +5,15 @@ public class Spell {
 	private int id;
 	private String nome;
 	private String url;
+	private String tooltip;
 	
 	public Spell() {}
 	
-	public Spell(int id, String nome, String url) {
+	public Spell(int id, String nome, String url, String tooltip) {
 		this.id = id;
 		this.nome = nome;
 		this.url = url;
+		this.tooltip=tooltip;
 	}
 	
 	public int getId() {
@@ -36,6 +38,17 @@ public class Spell {
 		
 		this.url=url;
 	}
+	
+	public String getTooltip() {
+		
+		return tooltip;
+	}
+	
+	public void setTooltip(String tooltip) {
+		
+		this.tooltip=tooltip;
+	}
+	
 	
 	@Override
 	public String toString() {

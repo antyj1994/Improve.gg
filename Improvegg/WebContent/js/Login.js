@@ -59,5 +59,9 @@ $(document).ready(function() {
 	
     //simple_tooltip("img","tooltip2");
 	  
-	 $('[data-toggle="tooltip"]').tooltip();   
+	 $('[data-toggle="tooltip"]').tooltip({
+		    animated: 'fade',
+		    placement: 'left',
+		    html: true
+		});   
 });
