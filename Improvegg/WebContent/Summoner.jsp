@@ -1,9 +1,6 @@
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<script src="js/jquery-3.2.1.js"></script>
-<script src="js/Sum.js"></script>
-<link rel="stylesheet" href="css/tool.css" type="text/css">
 <html>
 
 	<head>
@@ -12,10 +9,10 @@
 		<title>improve.gg</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="common.css" type="text/css">
-		<link rel="stylesheet" href="css//summonersss.css" type="text/css">
+		<link rel="stylesheet" href="css//summonerssss.css" type="text/css">
 		<link rel="stylesheet" href="css//tool.css" type="text/css">
-	
-		
+		<script src="js/jquery-3.2.1.js"></script>
+		<script src="js/Sum.js"></script>
 	</head>
 	
 	<body>
@@ -87,85 +84,92 @@
 					<c:if test="${not emptyMatches}">
 						<c:forEach var="partita" items="${partita}">
 							<hr class="my-3">
-						 	<div class="container-fluid row match-container justify-content-between">
-						 		<div class="game-stats col-sm">
-						 			<div>
-						 				${partita.gameMode}
-						 				<hr class="my-1">
-						 				${partita.result}
-						 				<hr class="my-1">
-						 				${partita.gameDuration}
-						 			</div>
-						 		</div>
-						 		<div class="summ-stats col">
-						 			<div class="row">
-							 			<div class="col">
-							 				<img src="${partita.champUrl}" class="rounded champions-image" width="75" height="75">
-							 				<footer>
-							 					${partita.champName}
-							 				</footer>
+							<div class="jq-match-container">
+							 	<div class="container-fluid row match-container justify-content-between">
+							 		<div class="game-stats col-sm">
+							 			<div>
+							 				${partita.gameMode}
+							 				<hr class="my-1">
+							 				${partita.result}
+							 				<hr class="my-1">
+							 				${partita.gameDuration}
 							 			</div>
-							 			<div class="col">
-							 				<img src="${partita.spellUrl1}" class="rounded champions-image" width="50" height="50" title="<img src='${partita.spell1}'>" data-toggle="tooltip">
-							 				<img src="${partita.spellUrl2}" class="rounded champions-image" width="50" height="50" title="<img src='${partita.spell2}'>" data-toggle="tooltip">
+							 		</div>
+							 		<div class="summ-stats col">
+							 			<div class="row">
+								 			<div class="col">
+								 				<img src="${partita.champUrl}" class="rounded champions-image" width="75" height="75">
+								 				<footer>
+								 					${partita.champName}
+								 				</footer>
+								 			</div>
+								 			<div class="col">
+								 				<img src="${partita.spellUrl1}" class="rounded champions-image" width="50" height="50" title="<img src='${partita.spell1}'>" data-toggle="tooltip">
+								 				<img src="${partita.spellUrl2}" class="rounded champions-image" width="50" height="50" title="<img src='${partita.spell2}'>" data-toggle="tooltip">
+								 			</div>
 							 			</div>
-						 			</div>
-						 		</div>
-						 		<div class="kda col">
-						 			<div class="row">
-						 				<div class="champ-level col">
-								 			Level ${partita.champLevel}
-								 			<hr class="my-1">
-								 			${partita.cs} CS
-								 			<hr class="my-1">
-								 			${partita.golds} K
-								 		</div>
-						 				<div class="kda col">
-						 					${partita.kda}
-						 					<hr class="my-1">
-						 					<img src="items//No_item.png" class="rounded champion-image" width="25" height="25">
-						 					<hr class="my-1">
-						 					${partita.lane}
-						 				</div>
-						 			</div>
-						 		</div>
-						 		<div class="items col">
-						 		
-							 		<div class="container items1">
-							 			<img src="${partita.itemUrl0}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item0}'>" data-toggle="tooltip" >
-							 			<img src="${partita.itemUrl1}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item1}'>" data-toggle="tooltip" >
-							 			<img src="${partita.itemUrl2}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item2}'>" data-toggle="tooltip" >
-							 			<hr class="my-2">
 							 		</div>
-							 		<div class="container items2">
-							 			<img src="${partita.itemUrl3}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item3}'>" data-toggle="tooltip" >
-							 			<img src="${partita.itemUrl4}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item4}'>" data-toggle="tooltip" >
-							 			<img src="${partita.itemUrl5}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item5}'>" data-toggle="tooltip" >
+							 		<div class="kda col">
+							 			<div class="row">
+							 				<div class="champ-level col">
+									 			Level ${partita.champLevel}
+									 			<hr class="my-1">
+									 			${partita.cs} CS
+									 			<hr class="my-1">
+									 			${partita.golds} K
+									 		</div>
+							 				<div class="kda col">
+							 					${partita.kda}
+							 					<hr class="my-1">
+							 					<img src="items//No_item.png" class="rounded champion-image" width="25" height="25">
+							 					<hr class="my-1">
+							 					${partita.lane}
+							 				</div>
+							 			</div>
 							 		</div>
-							 	
-							 	</div>
-						 		<div class="teams col-md">
-						 			<div class="team-row row">
-							 			<div class="container team1">
-								 			<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-							 				<hr class="my-2">
+							 		<div class="items col">
+							 		
+								 		<div class="container items1">
+								 			<img src="${partita.itemUrl0}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item0}'>" data-toggle="tooltip" >
+								 			<img src="${partita.itemUrl1}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item1}'>" data-toggle="tooltip" >
+								 			<img src="${partita.itemUrl2}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item2}'>" data-toggle="tooltip" >
+								 			<hr class="my-2">
 								 		</div>
-								 		<div class="container team2">
-								 			<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-							 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+								 		<div class="container items2">
+								 			<img src="${partita.itemUrl3}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item3}'>" data-toggle="tooltip" >
+								 			<img src="${partita.itemUrl4}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item4}'>" data-toggle="tooltip" >
+								 			<img src="${partita.itemUrl5}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item5}'>" data-toggle="tooltip" >
 								 		</div>
+								 	
 								 	</div>
-						 		</div>
-						 			<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    									<span class="sr-only">Toggle Dropdown</span>
-  									</button>
+							 		<div class="teams col-md">
+							 			<div class="team-row row">
+								 			<div class="container team1">
+									 			<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+								 				<hr class="my-2">
+									 		</div>
+									 		<div class="container team2">
+									 			<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+									 		</div>
+									 	</div>
+							 		</div>
+							 		<div class="btn-group">
+								 		<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    								<span class="sr-only">Toggle Dropdown</span>
+		  								</button>
+	  								</div>
+							 	</div>
+							 	<div class="jq-dropdown-menu container-fluid">
+							 		<p>test</p>
+							 	</div>
 						 	</div>
 						</c:forEach>
 					</c:if>
@@ -208,7 +212,6 @@
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-		
 	</body>
 	
 </html>

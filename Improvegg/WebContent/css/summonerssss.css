@@ -17,6 +17,10 @@
 	overflow: visible;
 }
 
+.jq-dropdown-menu{
+	display: none;
+}
+
 .champions-image{
 	margin-bottom: 1px;
 	overflow: visible;
