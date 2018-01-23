@@ -23,7 +23,7 @@ public class expandSummoner extends HttpServlet{
 		resp.setContentType("application/json");
 		PrintWriter out=resp.getWriter();
 		Gson gson=new Gson();
-		out.print(gson.toJson(data));
+		out.print(gson.toJson(null));
 		out.close();
 		
 	}
