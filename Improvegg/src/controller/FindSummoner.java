@@ -153,7 +153,8 @@ public class FindSummoner extends HttpServlet{
 						partita.setSpellUrl1(spell1.getUrl());
 						partita.setSpellUrl2(spell2.getUrl());
 						
-						
+						partita.setSpell1(spell1.getTooltip());
+						partita.setSpell2(spell2.getTooltip());
 						
 						if (item0!=null) {
 						partita.setItemUrl0(item0.getUrl());

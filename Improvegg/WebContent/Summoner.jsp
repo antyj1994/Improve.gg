@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="js/jquery-3.2.1.js"></script>
-<script src="js/Login.js"></script>
+<script src="js/Sum.js"></script>
 <link rel="stylesheet" href="css/tool.css" type="text/css">
 <html>
 
@@ -13,17 +13,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="common.css" type="text/css">
 		<link rel="stylesheet" href="css//summonersss.css" type="text/css">
-		<script>
-// Initialize tooltip component
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-
-// Initialize popover component
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
-</script>
+		<link rel="stylesheet" href="css//tool.css" type="text/css">
 	
 		
 	</head>
@@ -116,8 +106,8 @@ $(function () {
 							 				</footer>
 							 			</div>
 							 			<div class="col">
-							 				<img src="${partita.spellUrl1}" class="rounded champions-image" width="50" height="50">
-							 				<img src="${partita.spellUrl2}" class="rounded champions-image" width="50" height="50">
+							 				<img src="${partita.spellUrl1}" class="rounded champions-image" width="50" height="50" title="<img src='${partita.spell1}'>" data-toggle="tooltip">
+							 				<img src="${partita.spellUrl2}" class="rounded champions-image" width="50" height="50" title="<img src='${partita.spell2}'>" data-toggle="tooltip">
 							 			</div>
 						 			</div>
 						 		</div>
@@ -142,15 +132,15 @@ $(function () {
 						 		<div class="items col">
 						 		
 							 		<div class="container items1">
-							 			<img src="${partita.itemUrl0}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item0}'>" data-toggle="tooltip" data-placement="top">
-							 			<img src="${partita.itemUrl1}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item1}'>" data-toggle="tooltip" data-placement="top">
-							 			<img src="${partita.itemUrl2}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item2}'>" data-toggle="tooltip" data-placement="top">
+							 			<img src="${partita.itemUrl0}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item0}'>" data-toggle="tooltip" >
+							 			<img src="${partita.itemUrl1}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item1}'>" data-toggle="tooltip" >
+							 			<img src="${partita.itemUrl2}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item2}'>" data-toggle="tooltip" >
 							 			<hr class="my-2">
 							 		</div>
 							 		<div class="container items2">
-							 			<img src="${partita.itemUrl3}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item3}'>" data-toggle="tooltip" data-placement="top">
-							 			<img src="${partita.itemUrl4}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item4}'>" data-toggle="tooltip" data-placement="top">
-							 			<img src="${partita.itemUrl5}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item5}'>" data-toggle="tooltip" data-placement="top">
+							 			<img src="${partita.itemUrl3}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item3}'>" data-toggle="tooltip" >
+							 			<img src="${partita.itemUrl4}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item4}'>" data-toggle="tooltip" >
+							 			<img src="${partita.itemUrl5}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item5}'>" data-toggle="tooltip" >
 							 		</div>
 							 	
 							 	</div>
