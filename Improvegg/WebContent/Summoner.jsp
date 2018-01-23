@@ -142,7 +142,7 @@ $(function () {
 						 		<div class="items col">
 						 		
 							 		<div class="container items1">
-							 			<img src="${partita.itemUrl0}" class="rounded champion-image" width="30" height="30" title="<img src='tooltip//notworking2.png'>" data-toggle="tooltip" data-placement="top">
+							 			<img src="${partita.itemUrl0}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item0}'>" data-toggle="tooltip" data-placement="top">
 							 			<img src="${partita.itemUrl1}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item1}'>" data-toggle="tooltip" data-placement="top">
 							 			<img src="${partita.itemUrl2}" class="rounded champion-image" width="30" height="30" title="<img src='${partita.item2}'>" data-toggle="tooltip" data-placement="top">
 							 			<hr class="my-2">

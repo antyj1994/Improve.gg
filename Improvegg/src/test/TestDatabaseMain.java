@@ -47,7 +47,7 @@ public class TestDatabaseMain {
 		Champion champion18 = new Champion(18, "Tristana", "champions//TristanaSquare.png");
 		Champion champion19 = new Champion(19, "Warwick", "champions//WarwickSquare.png");
 		Champion champion20 = new Champion(20, "Nunu", "champions//NunuSquare.png");
-		Champion champion21 = new Champion(21, "Miss Fortune", "champions//Miss_FortunaSquare.png");
+		Champion champion21 = new Champion(21, "Miss Fortune", "champions//Miss_FortuneSquare.png");
 		Champion champion22 = new Champion(22, "Ashe", "champions//AsheSquare.png");
 		Champion champion23 = new Champion(23, "Tryndamere", "champions//TryndamereSquare.png");
 		Champion champion24 = new Champion(24, "Jax", "champions//JaxSquare.png");
@@ -215,7 +215,7 @@ public class TestDatabaseMain {
 		Item item45= new Item(2011, "Elisir di abilità", "items//Ichor_of_Illumination_item.png", "tooltip//Elixir_of_Skill.png");
 		Item item46= new Item(2012, "Biscotto della giovinezza saccheggiato", "items//Total_Biscuit_of_Everlasting_Will_item.png", "tooltip//Total_Biscuit.png");
 		Item item47= new Item(2013, "Estratto dell'oracolo saccheggiato", "items//Oracle's_Extract_item.png", "tooltip//Oracles_Extract.png");
-		Item item48= new Item(2015, "Scheggia di Kircheis", "items//Kirchei's_Shard_item.png", "tooltip//Kircheis_Shard.png");
+		Item item48= new Item(2015, "Scheggia di Kircheis", "items//Kircheis_Shard_item.png", "tooltip//Kircheis_Shard.png");
 		Item item49= new Item(2031, "Pozione ricaricabile", "items//Refillable_Potion_item.png", "tooltip//Refillable_Potion.png");
 		Item item50= new Item(2032, "Pozione del cacciatore", "items//Hunter's_Potion_item.png", "tooltip//Hunters_Potion.png");
 		Item item51= new Item(2033, "Pozione della corruzione", "items//Corrupting_Potion_item.png", "tooltip//Corrupting_Potion.png");
@@ -331,7 +331,7 @@ public class TestDatabaseMain {
 		Item item161= new Item(3122, "Accetta malefica", "items//Dagger_item.png", "tooltip//Wicked_Hatchet.png");
 		Item item162= new Item(3123, "Chiamata del carnefice", "items//Executioner's_Calling_item.png", "tooltip//Executioners_Calling.png");
 		Item item163= new Item(3124, "Furia di Guinsoo", "items//Guinsoo's_Rageblade_item.png", "tooltip//Guinsoos_Rageblade.png");
-		Item item164= new Item(3133, "Martello da guerra di Caulfield", "items//Caulfield's_Warhammer_item.png", "tooltip//Caulfield_Warhammer.png");
+		Item item164= new Item(3133, "Martello da guerra di Caulfield", "items//Caulfield's_Warhammer_item.png", "tooltip//Caulfields_Warhammer.png");
 		Item item165= new Item(3134, "Lungo pugnale seghettato", "items//Serrated_Dirk_item.png", "tooltip//Serrated_Dirk.png");
 		Item item166= new Item(3135, "Bastone del Vuoto", "items//Void_Staff_item.png", "tooltip//Void_Staff.png");
 		Item item167= new Item(3136, "Maschera stregata", "items//Haunting_Guise_item.png", "tooltip//Haunting_Guise.png");
@@ -344,7 +344,7 @@ public class TestDatabaseMain {
 		Item item174= new Item(3145, "Revolver Hextech", "items//Hextech_Revolver_item.png", "tooltip//Hextech_Revolver.png");
 		Item item175= new Item(3146, "Pistola a lame hextech", "items//Hextech_Gunblade_item.png", "tooltip//Hextech_Gunblade.png");
 		Item item176= new Item(3147, "Lama crepuscolare di Draktharr", "items//Duskblade_of_Draktharr_item.png", "tooltip//Duskblade_of_Draktharr.png");
-		Item item177= new Item(3151, "Tormento di Liandry", "items//Liandry's_Torment_item.png", "tooltip//notworking2.png");
+		Item item177= new Item(3151, "Tormento di Liandry", "items//Liandry's_Torment_item.png", "tooltip//Liandrys_Torment.png");
 		Item item178= new Item(3152, "Protocintura hextech 01", "items//Hextech_Protobelt-01_item.png", "tooltip//Hextech_Protobelt-01.png");
 		Item item179= new Item(3153, "Lama del re in rovina", "items//Blade_of_the_Ruined_King_item.png", "tooltip//Blade_of_the_Ruined_King.png");
 		Item item180= new Item(3155, "Mangiamagia", "items//Hexdrinker_item.png", "tooltip//Hexdrinker.png");
@@ -402,7 +402,7 @@ public class TestDatabaseMain {
 		Item item232= new Item(3462, "Pietra divinatoria (trinket)", "items//Farsight_Alteration_item.png", "tooltip//Dagger.png");
 		Item item233= new Item(3504, "Incensiere ardente", "items//Ardent_Censer_item.png", "tooltip//Ardent_Censer.png");
 		Item item234= new Item(3508, "Predatore d'essenza", "items//Essence_Reaver_item.png", "tooltip//Essence_Reaver.png");
-		Item item235= new Item(3512, "Portale Zz'Rot", "items//Zz'Rot_Portal_item.png", "tooltip//Zz'Rot_Portal.png");
+		Item item235= new Item(3512, "Portale Zz'Rot", "items//Zz'Rot_Portal_item.png", "tooltip//ZzRot_Portal.png");
 		Item item236= new Item(3513, "Occhio del Messaggero", "items//Eye_of_the_Herald_buff.png", "tooltip//Dagger.png");
 		Item item237= new Item(3599, "Lancia oscura", "items//The_Black_Spear_item.png", "tooltip//The_Black_Spear.png");
 		Item item238= new Item(3630, "Teletrasporto d'assedio", "items//Port_Pad_item.png", "tooltip//Port_Pad.png");
