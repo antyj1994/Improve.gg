@@ -24,6 +24,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>ExpandSummonerServlet</servlet-name>
+		<servlet-class>controller.ExpandSummoner</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>FindSummonerServlet</servlet-name>
+		<url-pattern>/expandSummoner</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
     	<servlet-name>CheckLogin</servlet-name>
     	<servlet-class>controller.CheckLogin</servlet-class>
   	</servlet>

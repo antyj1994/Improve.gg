@@ -8,17 +8,29 @@ $(document).ready(function() {
 		    placement: 'left',
 		    html: true
 	});   
-	$('.dropdown-toggle').on('click', 'button', function(){
-		alert('suca1');
-		$(this).closest('.btn-group').toggleClass('dropup');
-		$(this).closest('.jq-match-container').find('.jq-dropdown-menu').slideToggle();
+	$('.dropdown').on('click', 'button', function(){
+		$.ajax({
+			url : 'expandSummoner',
+			type : 'GET',
+			success: function(data){
+				alert(data);
+				$('#resultdiv').text(data);
+				$('.jq-dropdown-menu').show();
+			}
+		});
+		alert('testjs');
+		$(this).closest('.btn-group').addClass('dropup');
+		
 	});
+});
+	
+	
 	/*$('.dropup').on('click', 'button', function(){
 		alert('suca2');
 		$(this).closest('.dropup').addClass('dropdown');
 		$(this).closest('.dropup').removeClass('dropup');
 		$(this).closest('.jq-match-container').find('.jq-dropdown-menu').hide();
-	});*/
+	});
 	var xhr = new XMLHttpRequest();
 	xhr.setRequestHeader("connection", "close");
 	xhr.open('get', "expandSummoner", true);
@@ -27,7 +39,7 @@ $(document).ready(function() {
 		var jsonStringQuotes = xhr.responseText;
 		var dati = JSON.parse(jsonStringQuotes);
 
-		/*var xhrA = new XMLHttpRequest();
+		var xhrA = new XMLHttpRequest();
 		xhrA.open('get', 'datiAnagrafici');
 		xhrA.onload = function() {
 			var jsonStringQuotesA = xhrA.responseText;
@@ -51,7 +63,7 @@ $(document).ready(function() {
 					}
 				}
 			}	
-		}*/
+		}
 	}
 	xhr.send(null);
 });
@@ -70,4 +82,4 @@ function expandMatch(nM,mt,cont) {
 		}
 	});
 	
-}
+}*/

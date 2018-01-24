@@ -11,19 +11,17 @@ import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
-public class expandSummoner extends HttpServlet{
+public class ExpandSummoner extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		HttpSession session = req.getSession();
-		String matricola = (String) session.getAttribute("matricola");
-		String nomeUtente = req.getParameter("nomeUtente");
-		
 		resp.setContentType("application/json");
 		PrintWriter out=resp.getWriter();
-		Gson gson=new Gson();
-		out.print(gson.toJson(null));
+		out.println("testbackend");
+		//Gson gson=new Gson();
+		//out.print(gson.toJson(null));
 		out.close();
 		
 	}
