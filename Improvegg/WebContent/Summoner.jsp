@@ -98,7 +98,7 @@
 							 		<div class="summ-stats col">
 							 			<div class="row">
 								 			<div class="col">
-								 				<img src="${partita.champUrl}" class="rounded champions-image" width="75" height="75">
+								 				<img src="${partita.champUrl}" class="rounded champions-image" width="75" height="75" data-toggle="tooltip" title="<img src='${partita.champ}'>">
 								 				<footer>
 								 					${partita.champName}
 								 				</footer>

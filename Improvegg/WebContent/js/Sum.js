@@ -5,9 +5,13 @@
 $(document).ready(function() {
 	$('[data-toggle="tooltip"]').tooltip({
 		    animated: 'fade',
-		    placement: 'left',
+		    position: 'right',
 		    html: true
 	});   
+	
+	
+	
+	
 	$('.dropdown-toggle').on('click', 'button', function(){
 		alert('suca1');
 		$(this).closest('.btn-group').toggleClass('dropup');

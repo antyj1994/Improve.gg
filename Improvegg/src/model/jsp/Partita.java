@@ -10,6 +10,9 @@ public class Partita {
 	String kda;
 	
 	String champUrl;
+	String champ;
+	
+	
 	String itemUrl0;
 	String itemUrl1;
 	String itemUrl2;
@@ -38,6 +41,13 @@ public class Partita {
 	public Partita() {
 	}
 	
+	public String getChamp() {
+		return champ;		
+	}
+	
+	public void setChamp(String champ) {
+		this.champ=champ;
+	}
 	
 	public void setSpellUrl1(String spellUrl1) {
 		this.spellUrl1=spellUrl1;

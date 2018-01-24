@@ -142,13 +142,20 @@ public class FindSummoner extends HttpServlet{
 						partita.setGameMode(match.getGameMode());
 						partita.setResult(wonOrLost);
 						partita.setGameDuration(match.getGameDuration());
+						
 						partita.setChampName(champion.getNome());
 						partita.setChampLevel(ps.getChampLevel());
+						partita.setChamp(champion.getTooltip());
+						
 						partita.setKda(ps.getKills()+"/"+ps.getDeaths()+"/"+ps.getAssists());
 						partita.setGolds(ps.getGoldEarned());
 						partita.setCs(ps.getTotalMinionsKilled());
+						
 						partita.setVisionScore((int)ps.getVisionScore());
+						
 						partita.setLane(m.getLane());
+						
+						
 						partita.setChampUrl(champion.getUrl());
 						partita.setSpellUrl1(spell1.getUrl());
 						partita.setSpellUrl2(spell2.getUrl());
