@@ -9,6 +9,10 @@
 	overflow: visible;
 }
 
+.expand-container{
+	background-color: #25f;
+}
+
 .main-container{
 	background-color: #25f;
 	padding-bottom: 3rem;

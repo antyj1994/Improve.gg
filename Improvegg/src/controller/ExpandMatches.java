@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -40,70 +41,52 @@ import persistence.dao.FavouriteDao;
 import persistence.dao.ItemDao;
 import persistence.dao.SpellDao;
 
-public class FindSummoner extends HttpServlet{
+public class ExpandMatches extends HttpServlet{
 	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-			
-		HttpSession session = req.getSession();
-		String username = (String) session.getAttribute("username");
-		boolean isLogged = false;
-		if (session.getAttribute("logged") != null) {
-			isLogged = (boolean) session.getAttribute("logged");
-		}
-		if (username != null && isLogged){
-			req.setAttribute("loggato", true);
-		}else {
-			req.setAttribute("loggato", false);
-		}
-		req.setAttribute("messaggio", username);
-			
+		
+		PrintWriter out = resp.getWriter();
+		Gson gson  = new Gson();
 		try {
 			
 			ApiConfig config = new ApiConfig().setKey("RGAPI-8609de8c-bedd-4ed5-99d5-8be4c434d34f");
 			RiotApi api = new RiotApi(config);
 			String name = req.getParameter("summonerName");
-			String region = req.getParameter("region");
+			int time = Integer.parseInt(req.getParameter("timess"));
 			Summoner summoner = null;
 			boolean trovato = true;
 			Platform pl = Platform.EUW;
-			switch (region) {
-				case "EUW":
-					pl = Platform.EUW; break;
-				case "NA":
-					pl = Platform.NA; break;
-			}
 			try {
 				summoner = api.getSummonerByName(pl, name);
 			}catch(RiotApiException e) {
-				req.setAttribute("trovato", false);
-				trovato = false;
-				String message = e.getMessage();
-				if (message.startsWith("404")) {
-					req.setAttribute("causa", "Summoner Not Found!");
-				}
-				else if (message.startsWith("40")) {
-					req.setAttribute("causa", "Sorry! We currently can't retrieve any data");
-				}
+				e.printStackTrace();
 			}
 			if (trovato) {
-				req.setAttribute("trovato", true);
 				long id = summoner.getAccountId();
 				MatchList ml = null;
 				boolean matchTrovati = true;
+				
 				try {
 					ml = api.getRecentMatchListByAccountId(pl, id); //GETS THE RECENT MATCHLIST  BUG #1
 				} catch (RiotApiException e) {
 					req.setAttribute("emptyMatches", true);
 					req.setAttribute("causa", "Sorry! We currently can't retrieve your matches");
 					matchTrovati = false;
+					e.printStackTrace();
 				}
 				if (matchTrovati) {
 					List<MatchReference> l = ml.getMatches();
 					List<Partita> partite = new LinkedList<>();
 					Partita partita = null;
-					int onlyLast = 0; //GETS ONLY THE LAST GAME
-					for(Iterator<MatchReference> it = l.iterator(); it.hasNext() && onlyLast < 5;){
+					int onlyLast = 0;
+					
+					for(Iterator<MatchReference> it = l.iterator(); it.hasNext() && onlyLast < 10+(5*time);){
+						onlyLast++;
+						if(onlyLast <= 5 + (5*time)) {
+							it.next();
+						}
+						else {
 						MatchReference m = it.next();
 						
 						long gameId = m.getGameId();
@@ -119,10 +102,6 @@ public class FindSummoner extends HttpServlet{
 								wonOrLost = ts.getWin();
 							}
 						}
-						
-						onlyLast++;
-						
-						//WORKING ON
 						
 						
 						DAOFactory daoFactory = DatabaseManager.getInstance().getDaoFactory();
@@ -228,22 +207,14 @@ public class FindSummoner extends HttpServlet{
 						
 						
 						partite.add(partita);
-					}
-					req.setAttribute("partita", partite);
+					}//else
+					}//for
+					out.println(gson.toJson(partite));
+					out.close();
 				}
-				req.setAttribute("sumName", summoner.getName());
-				req.setAttribute("sumLevel", summoner.getSummonerLevel());
 			}
 		}catch(Exception ex) {
 			ex.printStackTrace();
 		}
-		
-		RequestDispatcher dispacher = req.getRequestDispatcher("Summoner.jsp");
-		dispacher.forward(req, resp);
-			
 	}
-	
 }	
-		
-		
-			

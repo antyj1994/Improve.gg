@@ -16,9 +16,9 @@ public class ExpandSummoner extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter out=resp.getWriter();
-		out.println(""
-				+ ""
-				+ "testbackend");
+		out.println(
+				"This feature has not been implemented yet!"
+		);
 		//Gson gson=new Gson();
 		//out.print(gson.toJson(null));
 		out.close();

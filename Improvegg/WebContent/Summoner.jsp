@@ -61,7 +61,7 @@
 						<div class="col">
 						</div>
 						<div class="col">
-							<h2><b>${sumName}</b></h2>
+							<h2><b id="sumName">${sumName}</b></h2>
 							<p>Recent Matches</p>
 						</div>
 						<div class="col">
@@ -78,7 +78,7 @@
 						</div>
 					</div>
 				</div>
-				
+				<div>
 				<div class="container-fluid matches-container">
 					<c:if test="${not emptyMatches}">
 						<c:forEach var="partita" items="${partita}">
@@ -179,10 +179,6 @@
 							 	</div>
 						 	</div>
 						</c:forEach>
-						<hr class="my-4">
-						<div>
-							<a href="#" role="button" class="btn btn-primary load-btn" >Load More</a>
-						</div>
 					</c:if>
 					<c:if test="${emptyMatches}">
 						<hr class="my-2">
@@ -191,7 +187,14 @@
 								${causa}
 							</b>
 						</h2>
-					</c:if>
+					</c:if>	
+					<hr class="my-3">
+					</div>
+						<hr class="my-3">
+						<div>
+							<button type="button" class="btn btn-primary load-btn" id="loadbtn">Load More</button>
+						</div>
+						<hr class="my-3">
 					<hr class="my-2">
 				</div>
 			</div>

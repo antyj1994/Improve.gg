@@ -33,6 +33,15 @@
 	</servlet-mapping>
 	
 	<servlet>
+		<servlet-name>ExpandMatchesServlet</servlet-name>
+		<servlet-class>controller.ExpandMatches</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExpandMatchesServlet</servlet-name>
+		<url-pattern>/expandMatches</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
     	<servlet-name>CheckLogin</servlet-name>
     	<servlet-class>controller.CheckLogin</servlet-class>
   	</servlet>
