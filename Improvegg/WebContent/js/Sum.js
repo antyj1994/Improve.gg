@@ -11,6 +11,12 @@ $(document).ready(function() {
 			}
 		});		
 	});
+	
+	$('[data-toggle="tooltip"]').tooltip({
+	    animated: 'fade',
+	    position: 'right',
+	    html: true
+});
 });
 
 var utilLoad = 0;
@@ -47,14 +53,14 @@ $(document).ready(function() {
 							 		'<div class="summ-stats col">' +
 							 			'<div class="row">' +
 								 			'<div class="col">' +
-								 				'<img src="' + x.champUrl + '" class="rounded champions-image" width="75" height="75" data-toggle="tooltip" title="<img src="' + x.champ + '">' +
+								 				'<img src="' + x.champUrl + '" class="rounded champions-image" width="75" height="75" data-toggle="tooltip" title="<img src=' + x.champ + '>">' +
 								 				'<footer>' +
 								 					x.champName +
 								 				'</footer>' +
 								 			'</div>' +
 								 			'<div class="col">' +
-								 				'<img src="' + x.spellUrl1 + '" class="rounded champions-image" width="50" height="50" data-toggle="tooltip" title="<img src="' + x.spell1 + '">' +
-								 				'<img src="' + x.spellUrl2 + '" class="rounded champions-image" width="50" height="50" data-toggle="tooltip" title="<img src="' + x.spell2 + '">' +
+								 				'<img src="' + x.spellUrl1 + '" class="rounded champions-image" width="50" height="50" data-toggle="tooltip" title="<img src=' + x.spell1 + '>">' +
+								 				'<img src="' + x.spellUrl2 + '" class="rounded champions-image" width="50" height="50" data-toggle="tooltip" title="<img src=' + x.spell2 + '>">' +
 								 			'</div>' +
 							 			'</div>' +
 							 		'</div>' +
@@ -76,15 +82,15 @@ $(document).ready(function() {
 							 		'</div>' +
 							 		'<div class="items col">' +
 								 		'<div class="container items1">' +
-								 			'<img src="' + x.itemUrl0 + '" class="rounded champion-image" width="30" height="30" data-toggle="tooltip" title="<img src="' + x.item0 + '">' +
-								 			'<img src="' + x.itemUrl1 + '" class="rounded champion-image" width="30" height="30" data-toggle="tooltip" title="<img src="' + x.item1 + '">' +
-								 			'<img src="' + x.itemUrl2 + '" class="rounded champion-image" width="30" height="30" data-toggle="tooltip" title="<img src="' + x.item2 + '">' +
+								 			'<img src="' + x.itemUrl0 + '" class="rounded champion-image" width="30" height="30" data-toggle="tooltip" title="<img src=' + x.item0 + '>">' +
+								 			'<img src="' + x.itemUrl1 + '" class="rounded champion-image" width="30" height="30" data-toggle="tooltip" title="<img src=' + x.item1 + '>">' +
+								 			'<img src="' + x.itemUrl2 + '" class="rounded champion-image" width="30" height="30" data-toggle="tooltip" title="<img src=' + x.item2 + '>">' +
 								 			'<hr class="my-2">' +
 								 		'</div>' +
 								 		'<div class="container items2">' +
-								 			'<img src="' + x.itemUrl3 + '" class="rounded champion-image" width="30" height="30" data-toggle="tooltip" title="<img src="' + x.item3 + '">' +
-								 			'<img src="' + x.itemUrl4 + '" class="rounded champion-image" width="30" height="30" data-toggle="tooltip" title="<img src="' + x.item4 + '">' +
-								 			'<img src="' + x.itemUrl5 + '" class="rounded champion-image" width="30" height="30" data-toggle="tooltip" title="<img src="' + x.item5 + '">' +
+								 			'<img src="' + x.itemUrl3 + '" class="rounded champion-image" width="30" height="30" data-toggle="tooltip" title="<img src=' + x.item3 + '>">' +
+								 			'<img src="' + x.itemUrl4 + '" class="rounded champion-image" width="30" height="30" data-toggle="tooltip" title="<img src=' + x.item4 + '>">' +
+								 			'<img src="' + x.itemUrl5 + '" class="rounded champion-image" width="30" height="30" data-toggle="tooltip" title="<img src=' + x.item5 + '>">' +
 								 		'</div>' +
 								 	'</div>' +
 							 		'<div class="teams col-md">' +
@@ -125,13 +131,5 @@ $(document).ready(function() {
 				alert(summonerName);
 			}
 		});		
-	});
-});
-
-$(document).ready(function() {
-	$('[data-toggle="tooltip"]').tooltip({
-		    animated: 'fade',
-		    position: 'right',
-		    html: true
 	});
 });
