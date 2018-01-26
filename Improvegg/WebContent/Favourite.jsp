@@ -9,6 +9,7 @@
 		<title>improve.gg</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="common.css" type="text/css">
+		<link rel="stylesheet" href="css//summoner.css" type="text/css">
 		
 	</head>
 	
@@ -62,7 +63,16 @@
 						<hr class="my-2">
 					 	<div class="container row match-container justify-content-between">
 					 		<div class="game-stats col">
-					 			${partita.nome}
+								<form action="findSummoner" method="post">
+								   <input type="hidden" name="summonerName" value="${partita.nome}" />
+								   <input type="hidden" name="region" value="EUW" />
+								   <a href="javascript:;" onclick="
+								   		javascript:
+									    $(this).parents('form').submit();">
+									    
+									    ${partita.nome}
+									</a> 
+								</form>
 					 		</div>
 					 	</div>
 					</c:forEach>

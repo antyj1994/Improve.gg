@@ -47,7 +47,7 @@
         				<a class="nav-link" href="findFavourites">Favourites</a>
       				</li>
       				<li class="nav-item">
-       					<a class="nav-link" href="#">Pro Players</a>
+       					<a class="nav-link" href="ProPlayers.html">Pro Players</a>
       				</li>
     			</ul>	
   			</div>
@@ -119,9 +119,7 @@
 									 		</div>
 							 				<div class="kda col">
 							 					${partita.kda}
-							 					<hr class="my-1">
-							 					<img src="items//No_item.png" class="rounded champion-image" width="25" height="25">
-							 					<hr class="my-1">
+							 					<hr class="my-2">
 							 					${partita.lane}
 							 				</div>
 							 			</div>
@@ -156,11 +154,23 @@
 									 		</div>
 									 	</div>
 							 		</div>
+							 		
+							 		
+							 		
+							 		
+							 		
+							 		
 							 		<div class="btn-group dropdown">
 								 		<button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		    								<span class="sr-only">Toggle Dropdown</span>
 		  								</button>
 	  								</div>
+	  								
+	  								
+	  								
+	  								
+	  								
+	  								
 							 	</div>
 							 	<div class="jq-dropdown-menu container-fluid">
 							 		<div id="resultdiv">
@@ -169,6 +179,10 @@
 							 	</div>
 						 	</div>
 						</c:forEach>
+						<hr class="my-4">
+						<div>
+							<a href="#" role="button" class="btn btn-primary load-btn" >Load More</a>
+						</div>
 					</c:if>
 					<c:if test="${emptyMatches}">
 						<hr class="my-2">

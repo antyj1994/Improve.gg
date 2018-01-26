@@ -36,7 +36,7 @@
         				<a class="nav-link" href="findFavourites">Favourites</a>
       				</li>
       				<li class="nav-item">
-       					<a class="nav-link" href="#">Pro Players</a>
+       					<a class="nav-link" href="ProPlayers.html">Pro Players</a>
       				</li>
     			</ul>	
   			</div>
