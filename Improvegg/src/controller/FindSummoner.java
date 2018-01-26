@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -59,7 +60,7 @@ public class FindSummoner extends HttpServlet{
 			
 		try {
 			
-			ApiConfig config = new ApiConfig().setKey("RGAPI-9ac0fb8d-aee0-4f23-993d-af237efe6582");
+			ApiConfig config = new ApiConfig().setKey("RGAPI-8609de8c-bedd-4ed5-99d5-8be4c434d34f");
 			RiotApi api = new RiotApi(config);
 			String name = req.getParameter("summonerName");
 			String region = req.getParameter("region");
@@ -107,6 +108,7 @@ public class FindSummoner extends HttpServlet{
 						
 						long gameId = m.getGameId();
 						Match match = api.getMatch(pl, gameId); //GET THE MATCH
+						
 						Participant part = match.getParticipantByAccountId(id); //GET THE PLAYER
 						ParticipantStats ps = part.getStats(); //GET THE PLAYER STATS
 						
@@ -126,7 +128,13 @@ public class FindSummoner extends HttpServlet{
 						DAOFactory daoFactory = DatabaseManager.getInstance().getDaoFactory();
 						ChampionDao championDao = daoFactory.getChampionDAO();
 						Champion champion = championDao.findByPrimaryKey(part.getChampionId());
-					
+						
+						List<String> champs = new ArrayList<>();
+						for(Participant p: match.getParticipants()) {
+							Champion champion2 = (championDao.findByPrimaryKey(p.getChampionId()));
+							champs.add(champion2.getUrl());
+						}
+						
 						ItemDao itemDao = daoFactory.getItemDAO();
 						Item item0 = itemDao.findByPrimaryKey(ps.getItem0());
 						Item item1 = itemDao.findByPrimaryKey(ps.getItem1());
@@ -139,16 +147,24 @@ public class FindSummoner extends HttpServlet{
 						Spell spell2 = spellDao.findByPrimaryKey(part.getSpell2Id());
 						
 						partita = new Partita();
+						partita.setChamps(champs);
 						partita.setGameMode(match.getGameMode());
 						partita.setResult(wonOrLost);
 						partita.setGameDuration(match.getGameDuration());
+						
 						partita.setChampName(champion.getNome());
 						partita.setChampLevel(ps.getChampLevel());
+						partita.setChamp(champion.getTooltip());
+						
 						partita.setKda(ps.getKills()+"/"+ps.getDeaths()+"/"+ps.getAssists());
 						partita.setGolds(ps.getGoldEarned());
 						partita.setCs(ps.getTotalMinionsKilled());
+						
 						partita.setVisionScore((int)ps.getVisionScore());
+						
 						partita.setLane(m.getLane());
+						
+						
 						partita.setChampUrl(champion.getUrl());
 						partita.setSpellUrl1(spell1.getUrl());
 						partita.setSpellUrl2(spell2.getUrl());

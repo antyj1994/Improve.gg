@@ -1,28 +1,41 @@
-/**
- * 
- */
-
+$(document).ready(function() {
+	$(".dropdown-toggle").click(function() {
+		var thiss = $(this);
+		$.ajax({
+			type: 'GET',
+			url: 'expandSummoner',
+			success: function(data){
+				alert(data);
+				thiss.closest('.jq-match-container').find('#resultdiv').html(data);
+			}
+		});		
+	});
+});
 $(document).ready(function() {
 	$('[data-toggle="tooltip"]').tooltip({
 		    animated: 'fade',
-		    placement: 'left',
+		    position: 'right',
 		    html: true
-	});   
-	$('.dropdown').on('click', 'button', function(){
-		$.ajax({
-			url : 'expandSummoner',
-			type : 'GET',
-			success: function(data){
-				alert(data);
-				$('#resultdiv').text(data);
-				$('.jq-dropdown-menu').show();
-			}
-		});
-		alert('testjs');
-		$(this).closest('.btn-group').addClass('dropup');
-		
 	});
 });
+/*$(document).ready(function() {
+	$('.dropdown-toggle').on('click', 'button', function(){
+		$.get("expandSummoner", function(data, status){
+			alert(status);
+			$('#resultdiv').html(data);
+			$('.jq-dropdown-menu').show();
+		});		
+	});
+});		
+		/*});
+		alert('testjs');
+		$(this).closest('.btn-group').addClass('dropup');
+	});
+	$('.dropdown-toggle').on('click', 'button', function(){
+		alert('suca1');
+		$(this).closest('.btn-group').toggleClass('dropup');
+		$(this).closest('.jq-match-container').find('.jq-dropdown-menu').slideToggle();*/
+	
 	
 	
 	/*$('.dropup').on('click', 'button', function(){

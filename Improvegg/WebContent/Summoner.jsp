@@ -9,14 +9,13 @@
 		<title>improve.gg</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 		<link rel="stylesheet" href="common.css" type="text/css">
-		<link rel="stylesheet" href="css//summonerssss.css" type="text/css">
+		<link rel="stylesheet" href="css//summoner.css" type="text/css">
 		<link rel="stylesheet" href="css//tool.css" type="text/css">
-		<script src="js/jquery-3.2.1.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script src="js/Sum.js"></script>
 	</head>
 	
 	<body>
-	
 		<div class="container-fluid body-container">
 		<nav class="navbar navbar-expand-lg justify-content-between">
 	 		<a href="home" class="navbar-brand">
@@ -98,7 +97,7 @@
 							 		<div class="summ-stats col">
 							 			<div class="row">
 								 			<div class="col">
-								 				<img src="${partita.champUrl}" class="rounded champions-image" width="75" height="75">
+								 				<img src="${partita.champUrl}" class="rounded champions-image" width="75" height="75" data-toggle="tooltip" title="<img src='${partita.champ}'>">
 								 				<footer>
 								 					${partita.champName}
 								 				</footer>
@@ -145,19 +144,15 @@
 							 		<div class="teams col-md">
 							 			<div class="team-row row">
 								 			<div class="container team1">
-									 			<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+												 <c:forEach var="champ" items="${partita.champs}">
+													  <img src="${champ}" class="rounded champion-image" width="30" height="30">
+												 </c:forEach>
 								 				<hr class="my-2">
 									 		</div>
 									 		<div class="container team2">
-									 			<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
-								 				<img src="items//No_item.png" class="rounded champion-image" width="30" height="30">
+									 			<c:forEach var="champ" items="${partita.champs2}">
+													  <img src="${champ}" class="rounded champion-image" width="30" height="30">
+												 </c:forEach>
 									 		</div>
 									 	</div>
 							 		</div>
@@ -211,7 +206,7 @@
 		</footer>
 		</div>
 		
-		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 	</body>

@@ -1,5 +1,9 @@
 package model.jsp;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class Partita {
 	
 	String gameMode;
@@ -10,6 +14,9 @@ public class Partita {
 	String kda;
 	
 	String champUrl;
+	String champ;
+	
+	
 	String itemUrl0;
 	String itemUrl1;
 	String itemUrl2;
@@ -35,9 +42,47 @@ public class Partita {
 	int visionScore;
 	String lane;
 	
+	ArrayList<String> champs;
+	ArrayList<String> champs2;
+	
 	public Partita() {
 	}
 	
+	
+	
+	public List<String> getChamps() {
+		return champs;
+	}
+
+	public List<String> getChamps2() {
+		return champs2;
+	}
+
+	public void setChamps(List<String> champs) {
+		int cont = 0;
+		ArrayList<String> temp = new ArrayList<>();
+		ArrayList<String> temp2 = new ArrayList<>();
+		for (Iterator<String> iterator = champs.iterator(); iterator.hasNext();) {
+			String string = iterator.next();
+			if (cont <= (champs.size()/2-1) && string != null) {
+				temp.add(string);
+			}
+			else if (string != null){
+				temp2.add(string);
+			}
+			cont++;
+		}
+		this.champs = temp;
+		this.champs2 = temp2;
+	}
+
+	public String getChamp() {
+		return champ;		
+	}
+	
+	public void setChamp(String champ) {
+		this.champ=champ;
+	}
 	
 	public void setSpellUrl1(String spellUrl1) {
 		this.spellUrl1=spellUrl1;

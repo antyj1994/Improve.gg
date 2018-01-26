@@ -15,14 +15,12 @@ public class ExpandSummoner extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
-		HttpSession session = req.getSession();
-		resp.setContentType("application/json");
 		PrintWriter out=resp.getWriter();
-		out.println("testbackend");
+		out.println(""
+				+ ""
+				+ "testbackend");
 		//Gson gson=new Gson();
 		//out.print(gson.toJson(null));
 		out.close();
-		
 	}
 }

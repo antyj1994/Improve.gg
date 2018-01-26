@@ -28,7 +28,7 @@
 		<servlet-class>controller.ExpandSummoner</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>FindSummonerServlet</servlet-name>
+		<servlet-name>ExpandSummonerServlet</servlet-name>
 		<url-pattern>/expandSummoner</url-pattern>
 	</servlet-mapping>
 	

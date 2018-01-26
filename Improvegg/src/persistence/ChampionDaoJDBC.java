@@ -22,11 +22,12 @@ public class ChampionDaoJDBC implements ChampionDao{
 	public void save(Champion champion) {
 		Connection connection = this.dataSource.getConnection();
 		try {		
-			String insert = "insert into champion(id, nome, url) values (?,?,?)";
+			String insert = "insert into champion(id, nome, url, tooltip) values (?,?,?,?)";
 			PreparedStatement statement = connection.prepareStatement(insert);
 			statement.setLong(1, champion.getId());
 			statement.setString(2, champion.getNome());		
-			statement.setString(3, champion.getUrl() );
+			statement.setString(3, champion.getUrl());
+			statement.setString(4, champion.getTooltip());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			if (connection != null) {
@@ -61,6 +62,7 @@ public class ChampionDaoJDBC implements ChampionDao{
 				champion.setId(result.getInt("id"));				
 				champion.setNome(result.getString("nome"));
 				champion.setUrl(result.getString("url"));
+				champion.setTooltip(result.getString("tooltip"));
 			}
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
@@ -89,6 +91,7 @@ public class ChampionDaoJDBC implements ChampionDao{
 				champion.setId(result.getInt("id"));				
 				champion.setNome(result.getString("nome"));
 				champion.setUrl(result.getString("url"));
+				champion.setTooltip(result.getString("tooltip"));
 				champions.add(champion);
 			}
 		} catch (SQLException e) {
@@ -107,11 +110,12 @@ public class ChampionDaoJDBC implements ChampionDao{
 	public void update(Champion champion) {
 		Connection connection = this.dataSource.getConnection();
 		try {
-			String update = "update champion SET id = ?, nome = ?, url = ?";
+			String update = "update champion SET id = ?, nome = ?, url = ?, tooltip = ?";
 			PreparedStatement statement = connection.prepareStatement(update);
 			statement.setInt(1, champion.getId());
 			statement.setString(2, champion.getNome());
 			statement.setString(3, champion.getUrl());
+			statement.setString(4, champion.getTooltip());
 			statement.executeUpdate();
 		} catch (SQLException e) {
 			throw new PersistenceException(e.getMessage());
