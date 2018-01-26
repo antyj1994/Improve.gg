@@ -75,7 +75,7 @@ public class TestDatabaseMain {
 		Champion champion46 = new Champion(48, "Trundle", "champions//TrundleSquare.png", "tooltip//Trundle.png");
 		Champion champion47 = new Champion(50, "Swain", "champions//SwainSquare.png", "tooltip//Swain.png");
 		Champion champion48 = new Champion(51, "Caitlyn", "champions//CaitlynSquare.png", "tooltip//Caitlyn.png");
-		Champion champion49 = new Champion(53, "Blitzcrank", "champions//BlitcrankSquare.png", "tooltip//Blitzcrank.png");
+		Champion champion49 = new Champion(53, "Blitzcrank", "champions//Blitz crankSquare.png", "tooltip//Blitzcrank.png");
 		Champion champion50 = new Champion(54, "Malphite", "champions//MalphiteSquare.png", "tooltip//Malphite.png");
 		Champion champion51 = new Champion(55, "Katarina", "champions//KatarinaSquare.png", "tooltip//Katarina.png");
 		Champion champion52 = new Champion(56, "Nocturne", "champions//NocturneSquare.png", "tooltip//Nocturne.png");
