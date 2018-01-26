@@ -50,7 +50,7 @@ public class ExpandMatches extends HttpServlet{
 		Gson gson  = new Gson();
 		try {
 			
-			ApiConfig config = new ApiConfig().setKey("RGAPI-8609de8c-bedd-4ed5-99d5-8be4c434d34f");
+			ApiConfig config = new ApiConfig().setKey("RGAPI-f118efd6-5b54-4552-b609-e337d8fee576");
 			RiotApi api = new RiotApi(config);
 			String name = req.getParameter("summonerName");
 			int time = Integer.parseInt(req.getParameter("timess"));
