@@ -75,7 +75,7 @@ public class TestDatabaseMain {
 		Champion champion46 = new Champion(48, "Trundle", "champions//TrundleSquare.png", "tooltip//Trundle.png");
 		Champion champion47 = new Champion(50, "Swain", "champions//SwainSquare.png", "tooltip//Swain.png");
 		Champion champion48 = new Champion(51, "Caitlyn", "champions//CaitlynSquare.png", "tooltip//Caitlyn.png");
-		Champion champion49 = new Champion(53, "Blitzcrank", "champions//Blitz crankSquare.png", "tooltip//Blitzcrank.png");
+		Champion champion49 = new Champion(53, "Blitzcrank", "champions//BlitzcrankSquare.png", "tooltip//Blitzcrank.png");
 		Champion champion50 = new Champion(54, "Malphite", "champions//MalphiteSquare.png", "tooltip//Malphite.png");
 		Champion champion51 = new Champion(55, "Katarina", "champions//KatarinaSquare.png", "tooltip//Katarina.png");
 		Champion champion52 = new Champion(56, "Nocturne", "champions//NocturneSquare.png", "tooltip//Nocturne.png");
@@ -143,7 +143,7 @@ public class TestDatabaseMain {
 		Champion champion114 = new Champion(157, "Yasuo", "champions//YasuoSquare.png", "tooltip//Yasuo.png");
 		Champion champion115 = new Champion(161, "Vel'Koz", "champions//Vel'KozSquare.png", "tooltip//VelKoz.png");
 		Champion champion116 = new Champion(163, "Taliyah", "champions//TaliyahSquare.png", "tooltip//Taliyah.png");
-		Champion champion117 = new Champion(164, "Camille", "champions//CamillaSquare.png", "tooltip//Camille.png");
+		Champion champion117 = new Champion(164, "Camille", "champions//CamilleSquare.png", "tooltip//Camille.png");
 		Champion champion118 = new Champion(201, "Braum", "champions//BraumSquare.png", "tooltip//Braum.png");
 		Champion champion119 = new Champion(202, "Jhin", "champions//JhinSquare.png", "tooltip//Jhin.png");
 		Champion champion120 = new Champion(203, "Kindred", "champions//KindredSquare.png", "tooltip//Kindred.png");
