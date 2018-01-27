@@ -1,6 +1,10 @@
 $(document).ready(function() {
-	$(".dropdown-toggle").click(function() {
+	$(".booldropdownt").click(function() {
 		var thiss = $(this);
+		thiss.closest('.btn-group').addClass('dropup');
+		thiss.closest('.btn-group').removeClass('dropdown');
+		thiss.addClass('booldropdownf');
+		thiss.removeClass('booldropdownt');
 		$.ajax({
 			type: 'GET',
 			url: 'expandSummoner',
@@ -12,6 +16,18 @@ $(document).ready(function() {
 		});		
 	});
 });
+
+/*$(document).ready(function() {
+	$(".booldropdownf").click(function() {
+		alert('test');
+		var thiss = $(this);
+		thiss.removeClass('booldropdownf');
+		thiss.addClass('booldropdownt');
+		thiss.closest('.btn-group').addClass('dropdown');
+		thiss.closest('.btn-group').removeClass('dropup');
+		//thiss.closest('.jq-match-container').find('#resultdiv').remove();		
+	});
+});*/
 
 var utilLoad = 0;
 
